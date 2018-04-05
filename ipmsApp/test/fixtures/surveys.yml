@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  organisation: MyText
+  city: MyText
+  office: MyText
+  building: MyText
+  floor: MyText
+  area: 9.99
+  building_type: MyText
+  component: MyText
+  ipms: MyText
+
+two:
+  organisation: MyText
+  city: MyText
+  office: MyText
+  building: MyText
+  floor: MyText
+  area: 9.99
+  building_type: MyText
+  component: MyText
+  ipms: MyText

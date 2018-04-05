@@ -1,0 +1,54 @@
+<center>
+  <%= image_tag('logo-iconcadd.png') %>
+</center>
+
+<center>
+<h2> Survey Details </h2>
+
+<div>
+  <strong>Organisation:</strong>
+  <%= @survey.organisation %>
+</div>
+
+<div>
+  <strong>City:</strong>
+  <%= @survey.city %>
+</div>
+
+<div>
+  <strong>Office:</strong>
+  <%= @survey.office %>
+</div>
+
+<div>
+  <strong>Building:</strong>
+  <%= @survey.building %>
+</div>
+
+<div>
+  <strong>Floor:</strong>
+  <%= @survey.floor %>
+</div>
+
+<div>
+  <strong>Area:</strong>
+  <%= @survey.area %>
+</div>
+
+<div>
+  <strong>Building Type:</strong>
+  <%= @survey.building_type %>
+</div>
+
+<div>
+  <strong>Component:</strong>
+  <%= @survey.component %>
+</div>
+
+<div>
+  <strong>IPMS:</strong>
+  <%= @survey.ipms %>
+</div>
+
+<%= link_to 'Back', surveys_path %> | <%= link_to 'Edit', edit_survey_path(@survey) %>
+</center>

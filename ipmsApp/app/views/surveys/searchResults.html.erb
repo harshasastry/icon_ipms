@@ -1,0 +1,68 @@
+
+<center>
+  <%= image_tag('logo-iconcadd.png') %>
+</center>
+
+<center>
+<h2>IPMS Report for <%= @organisation %></h2>
+
+<hr/>
+<br/>
+
+<h3>
+  For <%= @queryString %>
+</h3>
+
+
+<!-- table border="true">
+    <tr>
+      <th>IPMS</th>
+      <th>Component</th>
+      <th>Area</th>
+    </tr>
+    <% @surveys.each do |survey| %>
+    <tr>
+      <td><%= survey.ipms %></td>
+      <td><%= survey.component %></td>
+      <td><%= survey.area %></td>
+    </tr>
+    <% end %>
+</table -->
+
+
+<div class="container">
+	<div class="table">
+		<div class="table-header">
+			<div class="header__item"><a id="Organisation" class="filter__link" href="#">IPMS</a></div>
+			<div class="header__item"><a id="City" class="filter__link" href="#">Component</a></div>
+			<div class="header__item"><a id="Office" class="filter__link" href="#">Area</a></div>
+		</div>
+		<div class="table-content">
+      <% @surveys.each do |survey| %>
+			<div class="table-row">
+        <div class="table-data"><%= survey.ipms %></div>
+        <div class="table-data"><%= survey.component %></div>
+        <div class="table-data"><%= survey.area %></div>
+			</div>
+      <% end %>
+    </div>
+	</div>
+</div>
+
+
+
+<hr/>
+
+
+<% if @IPMS1 %>
+  <%= image_tag(@IPMS1, size: "300") %>
+<% end %>
+<% if @IPMS2 %>
+  <%= image_tag(@IPMS2, size: "300") %>
+<% end %>
+<% if @IPMS3 %>
+  <%= image_tag(@IPMS3, size: "300") %>
+<% end %>
+</center>
+
+<%= link_to 'Back', surveys_path %>

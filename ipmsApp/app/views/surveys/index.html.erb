@@ -1,0 +1,92 @@
+<%= stylesheet_link_tag 'style.css' %>
+
+<center>
+  <%= image_tag('logo-iconcadd.png') %>
+</center>
+
+<center>
+  <h1> Manage Survey Data </h1>
+<hr/>
+<br/>
+
+<%= link_to 'New Survey', new_survey_path %>
+<br>
+<br>
+<%= link_to 'Search Surveys', 'surveys/search' %>
+
+<h2>Survey List</h2>
+</center>
+
+<!-- table border="true">
+    <tr>
+      <th>Organisation</th>
+      <th>City</th>
+      <th>Office</th>
+      <th>Building</th>
+      <th>Floor</th>
+      <th>Area</th>
+      <th>Building_type</th>
+      <th>Component</th>
+      <th>IPMS</th>
+      <th>Actions</th>
+    </tr>
+    <hr/>
+    <% @surveys.each do |survey| %>
+    <tr>
+      <td><%= survey.organisation %></td>
+      <td><%= survey.city %></td>
+      <td><%= survey.office %></td>
+      <td><%= survey.building %></td>
+      <td><%= survey.floor %></td>
+      <td><%= survey.area %></td>
+      <td><%= survey.building_type %></td>
+      <td><%= survey.component %></td>
+      <td><%= survey.ipms %></td>
+      <td>
+        <%= link_to 'Show', survey_path(survey) %> |
+        <%= link_to 'Edit', edit_survey_path(survey) %> |
+        <%= link_to 'Delete', survey_path(survey),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+</table -->
+
+
+<div class="container">
+	<div class="table">
+		<div class="table-header">
+			<div class="header__item"><a id="Organisation" class="filter__link" href="#">Organisation</a></div>
+			<div class="header__item"><a id="City" class="filter__link" href="#">City</a></div>
+			<div class="header__item"><a id="Office" class="filter__link" href="#">Office</a></div>
+			<div class="header__item"><a id="Building" class="filter__link" href="#">Building</a></div>
+			<div class="header__item"><a id="Floor" class="filter__link" href="#">Floor</a></div>
+      <div class="header__item"><a id="Floor" class="filter__link" href="#">Area</a></div>
+      <div class="header__item"><a id="Floor" class="filter__link" href="#">Building_type</a></div>
+      <div class="header__item"><a id="Floor" class="filter__link" href="#">Component</a></div>
+      <div class="header__item"><a id="Floor" class="filter__link" href="#">IPMS</a></div>
+      <div class="header__item"><a id="Floor" class="filter__link" href="#">Actions</a></div>
+		</div>
+		<div class="table-content">
+      <% @surveys.each do |survey| %>
+			<div class="table-row">
+				<div class="table-data"><%= survey.organisation %></div>
+				<div class="table-data"><%= survey.city %></div>
+				<div class="table-data"><%= survey.office %></div>
+				<div class="table-data"><%= survey.building %></div>
+				<div class="table-data"><%= survey.floor %></div>
+        <div class="table-data"><%= survey.area %></div>
+        <div class="table-data"><%= survey.building_type %></div>
+        <div class="table-data"><%= survey.component %></div>
+        <div class="table-data"><%= survey.ipms %></div>
+        <div class="table-data">
+          <%= link_to 'Show', survey_path(survey) %> |
+          <%= link_to 'Edit', edit_survey_path(survey) %> |
+          <%= link_to 'Delete', survey_path(survey),method: :delete,data: { confirm: 'Are you sure?' } %>
+        </div>
+			</div>
+      <% end %>
+    </div>
+	</div>
+</div>

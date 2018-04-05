@@ -1,0 +1,52 @@
+<%= form_with(model: @survey) do |form| %>
+
+  <div class="field">
+    <%= form.label :organisation %>
+    <%= form.text_field :organisation, id: :survey_organisation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city, id: :survey_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :office %>
+    <%= form.text_field :office, id: :survey_office %>
+  </div>
+
+  <div class="field">
+    <%= form.label :building %>
+    <%= form.text_field :building, id: :survey_building %>
+  </div>
+
+  <div class="field">
+    <%= form.label :floor %>
+    <%= form.number_field :floor, id: :survey_floor %>
+  </div>
+
+   <div class="field">
+    <%= form.label :area %>
+    <%= form.number_field :area, id: :area, step: :any %>
+  </div>
+
+  <div class="field">
+    <%= form.label :building_type %>
+    <%= form.text_field :building_type, id: :survey_building_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :component %>
+    <%= form.text_field :component, id: :survey_component %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ipms %>
+    <%= form.text_field :ipms, id: :survey_ipms %>
+  </div>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
