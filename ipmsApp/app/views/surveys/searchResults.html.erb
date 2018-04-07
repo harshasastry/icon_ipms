@@ -34,17 +34,32 @@
 	<div class="table">
 		<div class="table-header">
 			<div class="header__item"><a id="Organisation" class="filter__link" href="#">IPMS</a></div>
-			<div class="header__item"><a id="City" class="filter__link" href="#">Component</a></div>
-			<div class="header__item"><a id="Office" class="filter__link" href="#">Area</a></div>
-		</div>
+			<div class="header__item"><a id="City" class="filter__link" href="#">ComponentA</a></div>
+      <div class="header__item"><a id="City" class="filter__link" href="#">ComponentB</a></div>
+			<div class="header__item"><a id="Office" class="filter__link" href="#">Total Area</a></div>
+    </div>
 		<div class="table-content">
-      <% @surveys.each do |survey| %>
+      <%# @surveys.each do |survey| %>
 			<div class="table-row">
-        <div class="table-data"><%= survey.ipms %></div>
-        <div class="table-data"><%= survey.component %></div>
-        <div class="table-data"><%= survey.area %></div>
+        <div class="table-data">IPMS 1</div>
+        <div class="table-data"><%= @ipms_1_comp_a %></div>
+        <div class="table-data"><%= @ipms_1_comp_b %></div>
+        <div class="table-data"><%= @ipms_1_total_area %></div>
 			</div>
-      <% end %>
+      <div class="table-row">
+        <div class="table-data">IPMS 2</div>
+        <div class="table-data"><%= @ipms_2_comp_a %></div>
+        <div class="table-data"><%= @ipms_2_comp_b %></div>
+        <div class="table-data"><%= @ipms_2_total_area %></div>
+      </div>
+      <div class="table-row">
+        <div class="table-data">IPMS 3</div>
+        <div class="table-data"><%= @ipms_3_comp_a %></div>
+        <div class="table-data"><%= @ipms_3_comp_b %></div>
+        <div class="table-data"><%= @ipms_3_total_area %></div>
+      </div>
+     
+      <%# end %>
     </div>
 	</div>
 </div>

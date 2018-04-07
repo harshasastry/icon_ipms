@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   post 'surveys/searchResults'
 
+  get 'surveys/searchResults'
+
   # This represents a collection of surveys - basically survey class
   resources :surveys
 
