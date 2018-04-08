@@ -41,13 +41,13 @@ class SurveysController < ApplicationController
       building = building.split(",").first
       floor = 1
       @surveys = Survey.where(organisation: organisation, city: city, office: office, building: building, floor: 1).order(ipms: :desc)
-      @queryString = city + ", " + office + ", " + building
+      @queryString = building + ", " + office +", " + city 
       @organisation = organisation
       #send_file Rails.root.join("public", "IPMS1.png"), type: "image/png", disposition: "inline"
       @IPMS1 = "IPMS1.png"
       @IPMS2 = "IPMS2.png"
       @IPMS3 = "IPMS3.png"
-      
+
       # do the calculation part
       @ipms_1_comp_a = @surveys.where(ipms: 1, component: "Comp A").pluck(:area).first.to_f
       @ipms_1_comp_b = @surveys.where(ipms: 1, component: "Comp B").pluck(:area).first.to_f

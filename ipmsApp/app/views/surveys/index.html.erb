@@ -9,12 +9,15 @@
 <hr/>
 <br/>
 
-<%= link_to 'New Survey', new_survey_path %>
+<h2>
+<%= link_to 'New', new_survey_path %>
 <br>
 <br>
-<%= link_to 'Search Surveys', 'surveys/search' %>
+<%= link_to 'Search', 'surveys/search' %>
+</h2>
 
-<h2>Survey List</h2>
+<br/>
+<h2>List of surveys</h2>
 </center>
 
 <!-- table border="true">
@@ -90,3 +93,5 @@
     </div>
 	</div>
 </div>
+
+<%= link_to 'Back', home_index_path %>

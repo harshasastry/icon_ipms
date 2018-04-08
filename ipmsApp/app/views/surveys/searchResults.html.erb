@@ -4,7 +4,7 @@
 </center>
 
 <center>
-<h2>IPMS Report for <%= @organisation %></h2>
+<h1>IPMS Report for <%= @organisation %></h1>
 
 <hr/>
 <br/>
@@ -58,7 +58,7 @@
         <div class="table-data"><%= @ipms_3_comp_b %></div>
         <div class="table-data"><%= @ipms_3_total_area %></div>
       </div>
-     
+
       <%# end %>
     </div>
 	</div>
@@ -70,13 +70,13 @@
 
 
 <% if @IPMS1 %>
-  <%= image_tag(@IPMS1, size: "300") %>
+  <%= image_tag(@IPMS1, size: "300", :style => "border: 1px solid grey") %>
 <% end %>
 <% if @IPMS2 %>
-  <%= image_tag(@IPMS2, size: "300") %>
+  <%= image_tag(@IPMS2, size: "300", :style => "border: 1px solid grey") %>
 <% end %>
 <% if @IPMS3 %>
-  <%= image_tag(@IPMS3, size: "300") %>
+  <%= image_tag(@IPMS3, size: "300", :style => "border: 1px solid grey") %>
 <% end %>
 </center>
 
