@@ -36,12 +36,12 @@ class SurveysController < ApplicationController
       city = params[:city]
       office = params[:office]
       building = params[:building]
-      organisation = "Wipro"
+      organisation = params[:organisation]
 
       building = building.split(",").first
       floor = 1
       @surveys = Survey.where(organisation: organisation, city: city, office: office, building: building, floor: 1).order(ipms: :desc)
-      @queryString = building + ", " + office +", " + city 
+      @queryString = building + ", " + office +", " + city
       @organisation = organisation
       #send_file Rails.root.join("public", "IPMS1.png"), type: "image/png", disposition: "inline"
       @IPMS1 = "IPMS1.png"

@@ -8973,3 +8973,261 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 39ms (Views: 35.3ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-04-08 14:12:01 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (166.6ms)
+Completed 200 OK in 212ms (Views: 202.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2018-04-08 14:12:03 +0530
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 54ms (Views: 47.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-08 14:12:08 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  Rendered surveys/search.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 64ms (Views: 60.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/surveys/searchResults" for 127.0.0.1 at 2018-04-08 14:12:15 +0530
+Processing by SurveysController#searchResults as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uY10XcgRJGs0gjoT/h+6afYj1i53WA3JZFeWAyLQvmkMn3/4LTBuiKdRKnYyXYu+dipHPpA0IVnwDbu1PF3U6Q==", "organisation"=>"Tipro", "city"=>"Bangalore", "office"=>"Wipro Corporate Office, Sarjapur", "building"=>"Wipro Corporate Office, Level-B2", "commit"=>"Search"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."office" = ? AND "surveys"."building" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Tipro"], ["city", "Bangalore"], ["office", "Wipro Corporate Office, Sarjapur"], ["building", "Wipro Corporate Office"], ["floor", "1"], ["ipms", "1"], ["component", "Comp A"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."office" = ? AND "surveys"."building" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Tipro"], ["city", "Bangalore"], ["office", "Wipro Corporate Office, Sarjapur"], ["building", "Wipro Corporate Office"], ["floor", "1"], ["ipms", "1"], ["component", "Comp B"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."office" = ? AND "surveys"."building" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Tipro"], ["city", "Bangalore"], ["office", "Wipro Corporate Office, Sarjapur"], ["building", "Wipro Corporate Office"], ["floor", "1"], ["ipms", "2"], ["component", "Comp A"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."office" = ? AND "surveys"."building" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Tipro"], ["city", "Bangalore"], ["office", "Wipro Corporate Office, Sarjapur"], ["building", "Wipro Corporate Office"], ["floor", "1"], ["ipms", "2"], ["component", "Comp B"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."office" = ? AND "surveys"."building" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Tipro"], ["city", "Bangalore"], ["office", "Wipro Corporate Office, Sarjapur"], ["building", "Wipro Corporate Office"], ["floor", "1"], ["ipms", "3"], ["component", "Comp A"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."office" = ? AND "surveys"."building" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Tipro"], ["city", "Bangalore"], ["office", "Wipro Corporate Office, Sarjapur"], ["building", "Wipro Corporate Office"], ["floor", "1"], ["ipms", "3"], ["component", "Comp B"]]
+  Rendering surveys/searchResults.html.erb within layouts/application
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."office" = ? AND "surveys"."building" = ? AND "surveys"."floor" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Tipro"], ["city", "Bangalore"], ["office", "Wipro Corporate Office, Sarjapur"], ["building", "Wipro Corporate Office"], ["floor", "1"]]
+  Rendered surveys/searchResults.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 41ms (Views: 32.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2018-04-08 14:12:30 +0530
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (0.3ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 43ms (Views: 37.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/surveys/2/edit" for 127.0.0.1 at 2018-04-08 14:12:37 +0530
+Processing by SurveysController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering surveys/edit.html.erb within layouts/application
+  Rendered surveys/_form.html.erb (17.5ms)
+  Rendered surveys/edit.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 65ms (Views: 57.5ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/surveys/2" for 127.0.0.1 at 2018-04-08 14:12:41 +0530
+Processing by SurveysController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DWpVflmo5EBWLC41k2e832xeyeBpKPqa9uFDw6RDPni2A1BlTVDEVciOkL07ZnKo6XlVp0Hu7cdsdRfg3RN+wQ==", "survey"=>{"organisation"=>"Tipro", "city"=>"Bangalore", "office"=>"Wipro Corporate Office, Sarjapur", "building"=>"Wipro Corporate Office", "floor"=>"1", "area"=>"230.0", "building_type"=>"Commercial", "component"=>"Comp A", "ipms"=>"3"}, "commit"=>"Update Survey", "id"=>"2"}
+  [1m[36mSurvey Load (0.1ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.6ms)[0m  [1m[33mUPDATE "surveys" SET "organisation" = ?, "updated_at" = ? WHERE "surveys"."id" = ?[0m  [["organisation", "Tipro"], ["updated_at", "2018-04-08 08:42:41.489380"], ["id", 2]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/surveys/2
+Completed 200 OK in 30ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/surveys/2" for 127.0.0.1 at 2018-04-08 14:12:41 +0530
+Processing by SurveysController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSurvey Load (0.1ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering surveys/show.html.erb within layouts/application
+  Rendered surveys/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 56ms (Views: 48.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2018-04-08 14:12:42 +0530
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (0.3ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 55ms (Views: 50.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/surveys/3/edit" for 127.0.0.1 at 2018-04-08 14:12:47 +0530
+Processing by SurveysController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.1ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/edit.html.erb within layouts/application
+  Rendered surveys/_form.html.erb (3.4ms)
+  Rendered surveys/edit.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 37ms (Views: 32.0ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/surveys/3" for 127.0.0.1 at 2018-04-08 14:12:50 +0530
+Processing by SurveysController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lfRJVuSUalyg+Fnunwma9d6DQ0Brzp+sI0xkPCmXM81hL6g8C7Jv+2+eM2H8APyLDq99J++EjyJrO5hWFqA2nA==", "survey"=>{"organisation"=>"Tipro", "city"=>"Bangalore", "office"=>"Wipro Corporate Office, Sarjapur", "building"=>"Wipro Corporate Office", "floor"=>"2", "area"=>"500.0", "building_type"=>"Commercial", "component"=>"Comp B", "ipms"=>"1"}, "commit"=>"Update Survey", "id"=>"3"}
+  [1m[36mSurvey Load (0.4ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "surveys" SET "organisation" = ?, "updated_at" = ? WHERE "surveys"."id" = ?[0m  [["organisation", "Tipro"], ["updated_at", "2018-04-08 08:42:50.811825"], ["id", 3]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/surveys/3
+Completed 200 OK in 7ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/surveys/3" for 127.0.0.1 at 2018-04-08 14:12:50 +0530
+Processing by SurveysController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.1ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/show.html.erb within layouts/application
+  Rendered surveys/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 33ms (Views: 28.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2018-04-08 14:12:52 +0530
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 36ms (Views: 32.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/4/edit" for 127.0.0.1 at 2018-04-08 14:12:56 +0530
+Processing by SurveysController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSurvey Load (0.1ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering surveys/edit.html.erb within layouts/application
+  Rendered surveys/_form.html.erb (4.3ms)
+  Rendered surveys/edit.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 39ms (Views: 34.9ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/surveys/4" for 127.0.0.1 at 2018-04-08 14:12:59 +0530
+Processing by SurveysController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8b42KkZu0UTYB9/O4o9bzyH5u0hDjjKqk+1Lj5tZI9FdIFEwiqheWfkGa7r2oF3mt+ovFHQX2RWhsnim5j2EHA==", "survey"=>{"organisation"=>"Tipro", "city"=>"Bangalore", "office"=>"Wipro Corporate Office, Sarjapur", "building"=>"Wipro Corporate Office", "floor"=>"1", "area"=>"300.0", "building_type"=>"Commercial", "component"=>"Comp B", "ipms"=>"2"}, "commit"=>"Update Survey", "id"=>"4"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "surveys" SET "organisation" = ?, "updated_at" = ? WHERE "surveys"."id" = ?[0m  [["organisation", "Tipro"], ["updated_at", "2018-04-08 08:42:59.558491"], ["id", 4]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/surveys/4
+Completed 200 OK in 9ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/surveys/4" for 127.0.0.1 at 2018-04-08 14:12:59 +0530
+Processing by SurveysController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering surveys/show.html.erb within layouts/application
+  Rendered surveys/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 39ms (Views: 34.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2018-04-08 14:13:00 +0530
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 39ms (Views: 34.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/5/edit" for 127.0.0.1 at 2018-04-08 14:13:02 +0530
+Processing by SurveysController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering surveys/edit.html.erb within layouts/application
+  Rendered surveys/_form.html.erb (4.5ms)
+  Rendered surveys/edit.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 38ms (Views: 33.7ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/surveys/5" for 127.0.0.1 at 2018-04-08 14:13:05 +0530
+Processing by SurveysController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E//6COMROiwucqVwl9prSEKqUtoYI1mv2MZfCJJn0g9FOeDhRSY2Q5H1WwrGbpAX5Bad86REOhBhk/yx7AYybA==", "survey"=>{"organisation"=>"Tipro", "city"=>"Bangalore", "office"=>"Wipro Corporate Office, Sarjapur", "building"=>"Wipro Corporate Office", "floor"=>"1", "area"=>"400.0", "building_type"=>"Commercial", "component"=>"Comp A", "ipms"=>"1"}, "commit"=>"Update Survey", "id"=>"5"}
+  [1m[36mSurvey Load (0.3ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "surveys" SET "organisation" = ?, "updated_at" = ? WHERE "surveys"."id" = ?[0m  [["organisation", "Tipro"], ["updated_at", "2018-04-08 08:43:05.461378"], ["id", 5]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/surveys/5
+Completed 200 OK in 7ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/surveys/5" for 127.0.0.1 at 2018-04-08 14:13:05 +0530
+Processing by SurveysController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mSurvey Load (0.3ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering surveys/show.html.erb within layouts/application
+  Rendered surveys/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 37ms (Views: 32.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2018-04-08 14:13:06 +0530
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 34ms (Views: 30.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/6/edit" for 127.0.0.1 at 2018-04-08 14:13:09 +0530
+Processing by SurveysController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering surveys/edit.html.erb within layouts/application
+  Rendered surveys/_form.html.erb (3.4ms)
+  Rendered surveys/edit.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 49ms (Views: 45.1ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/surveys/6" for 127.0.0.1 at 2018-04-08 14:13:12 +0530
+Processing by SurveysController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lyAVFdJMFQN8sTpQJgMT9XzE4PPBDID/rht4aBX9SRhPa/a5mN9QlWyKKmKU9nEbfEb+Ehb9FuoelAN9VJ7WQQ==", "survey"=>{"organisation"=>"Tipro", "city"=>"Bangalore", "office"=>"Wipro Corporate Office, Sarjapur", "building"=>"Wipro Corporate Office", "floor"=>"2", "area"=>"600.0", "building_type"=>"Commercial", "component"=>"Comp A", "ipms"=>"1"}, "commit"=>"Update Survey", "id"=>"6"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "surveys" SET "organisation" = ?, "updated_at" = ? WHERE "surveys"."id" = ?[0m  [["organisation", "Tipro"], ["updated_at", "2018-04-08 08:43:12.410675"], ["id", 6]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/surveys/6
+Completed 200 OK in 7ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/surveys/6" for 127.0.0.1 at 2018-04-08 14:13:12 +0530
+Processing by SurveysController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering surveys/show.html.erb within layouts/application
+  Rendered surveys/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 34ms (Views: 29.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2018-04-08 14:13:13 +0530
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 35ms (Views: 30.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-08 14:13:15 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  Rendered surveys/search.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 35ms (Views: 31.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/surveys/searchResults" for 127.0.0.1 at 2018-04-08 14:13:17 +0530
+Processing by SurveysController#searchResults as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"N6rkYFkszsdd1M27AjGtYAPnfN2UgXMwKX0IM5hwMxCCuO/FvA2EJM4H3d7Oc5y3g+7tzXPtX6C9JyWFhv1ZkA==", "organisation"=>"Tipro", "city"=>"Bangalore", "office"=>"Wipro Corporate Office, Sarjapur", "building"=>"Wipro Corporate Office, Level-B2", "commit"=>"Search"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."office" = ? AND "surveys"."building" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Tipro"], ["city", "Bangalore"], ["office", "Wipro Corporate Office, Sarjapur"], ["building", "Wipro Corporate Office"], ["floor", "1"], ["ipms", "1"], ["component", "Comp A"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."office" = ? AND "surveys"."building" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Tipro"], ["city", "Bangalore"], ["office", "Wipro Corporate Office, Sarjapur"], ["building", "Wipro Corporate Office"], ["floor", "1"], ["ipms", "1"], ["component", "Comp B"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."office" = ? AND "surveys"."building" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Tipro"], ["city", "Bangalore"], ["office", "Wipro Corporate Office, Sarjapur"], ["building", "Wipro Corporate Office"], ["floor", "1"], ["ipms", "2"], ["component", "Comp A"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."office" = ? AND "surveys"."building" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Tipro"], ["city", "Bangalore"], ["office", "Wipro Corporate Office, Sarjapur"], ["building", "Wipro Corporate Office"], ["floor", "1"], ["ipms", "2"], ["component", "Comp B"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."office" = ? AND "surveys"."building" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Tipro"], ["city", "Bangalore"], ["office", "Wipro Corporate Office, Sarjapur"], ["building", "Wipro Corporate Office"], ["floor", "1"], ["ipms", "3"], ["component", "Comp A"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."office" = ? AND "surveys"."building" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Tipro"], ["city", "Bangalore"], ["office", "Wipro Corporate Office, Sarjapur"], ["building", "Wipro Corporate Office"], ["floor", "1"], ["ipms", "3"], ["component", "Comp B"]]
+  Rendering surveys/searchResults.html.erb within layouts/application
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."office" = ? AND "surveys"."building" = ? AND "surveys"."floor" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Tipro"], ["city", "Bangalore"], ["office", "Wipro Corporate Office, Sarjapur"], ["building", "Wipro Corporate Office"], ["floor", "1"]]
+  Rendered surveys/searchResults.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 39ms (Views: 31.1ms | ActiveRecord: 1.1ms)
+
+

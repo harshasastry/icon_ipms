@@ -13,6 +13,10 @@
 <!-- scope: :survey removed below -->
 <%= form_with url: surveys_searchResults_path, local: true do |f| %>
 
+  <p><h2> <%= f.label :organisation, "Select a Organisation" %> </h2>
+  <%= f.select :organisation, ['Tipro', 'Disco', 'Infy']%>
+  </h2></p>
+
   <p><h2> <%= f.label :city, "Select a city" %> </h2>
   <%= f.select :city, ['Bangalore', 'Mysuru', 'Chennai']%>
   </h2></p>
