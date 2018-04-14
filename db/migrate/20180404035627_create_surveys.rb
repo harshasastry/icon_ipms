@@ -3,8 +3,9 @@ class CreateSurveys < ActiveRecord::Migration[5.1]
     create_table :surveys do |t|
       t.text :organisation
       t.text :city
-      t.text :office
-      t.text :building
+      t.text :location
+      t.text :unit
+      t.text :tower
       t.text :floor
       t.decimal :area
       t.text :building_type

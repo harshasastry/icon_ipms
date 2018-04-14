@@ -1,4 +1,44 @@
 <%= stylesheet_link_tag 'dropdown.css' %>
+<style type="text/css">
+
+  a.hovertext {
+    position: relative;
+    width: 500px;
+    text-decoration: none !important;
+    text-align: center;
+  }
+  a.hovertext::after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0.5em 20px;
+    width: 460px;
+    background: rgba(0,0,0,0.8);
+    text-decoration: none !important;
+    color: #fff;
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+  }
+  a.hovertext:hover::after, a.hovertext:focus::after {
+    opacity: 1.0;
+  }
+
+</style>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script>
+  $(function()
+  {
+    $("#organisation").change(function() {
+      $("#text-two").load("textdata/" + $(this).val() + ".txt");
+    });
+  });
+</script>
 
 <center>
   <%= image_tag('logo-iconcadd.png') %>
@@ -11,25 +51,50 @@
 
 <br/>
 <!-- scope: :survey removed below -->
+
 <%= form_with url: surveys_searchResults_path, local: true do |f| %>
 
-  <p><h2> <%= f.label :organisation, "Select a Organisation" %> </h2>
-  <%= f.select :organisation, ['Tipro', 'Disco', 'Infy']%>
-  </h2></p>
+  <div>
+    <h2>
+      <%= f.label :organisation, "Select a Organisation" %>
+      <%= f.select :organisation, ['Zen', 'Disco', 'Comfy'] %>
+    </h2>
+  </div>
 
-  <p><h2> <%= f.label :city, "Select a city" %> </h2>
-  <%= f.select :city, ['Bangalore', 'Mysuru', 'Chennai']%>
-  </h2></p>
+  <div>
+    <h2>
+      <%= f.label :city, "Select a City" %>
+      <%= f.select :city, ['Bangalore', 'Mysuru', 'Chennai']%>
+    </h2>
+  </div>
 
-  <p><h2>
-  <%= f.label :office, "Select office" %>
-  <%= f.select :office, ['Wipro Corporate Office, Sarjapur', 'Wipro Tech Ltd, EC1', 'Wipro Tech Ltd, EC2', 'Wipro Tech Ltd, EC3', 'Wipro Tech, Madiwala', 'Wipro Tech, ORR']%>
-  </h2></p>
+  <div>
+    <h2>
+      <%= f.label :location, "Select Location" %>
+      <%= f.select :location, ['Zen Corporate Office, Sarjapur', 'Zen Tech Ltd, EC1', 'Zen Tech Ltd, EC2', 'Zen Tech Ltd, EC3', 'Zen Tech, Madiwala', 'Zen Tech, ORR']%>
+    </h2>
+  </div>
 
-  <p><h2>
-  <%= f.label :building, "Select Building" %>
-  <%= f.select :building, ['Wipro Corporate Office, Level-B2','Wipro Corporate Office, Level-B1', 'Wipro Corporate Office, Level-0', 'Wipro Corporate Office, Level-1', 'Wipro Corporate Office, Level-2', 'Wipro Corporate Office, Level-3']%>
-  </h2></p>
+  <div>
+    <h2>
+      <%= f.label :unit, "Select Unit" %>
+      <%= f.select :unit, ['EC1', 'EC2', 'EC3', 'EC4', 'EC5']%>
+    </h2>
+  </div>
+
+  <div>
+    <h2>
+      <%= f.label :tower, "Select Tower" %>
+      <%= f.select :tower, ['Tower-1','Tower-2', 'Tower-3']%>
+    </h2>
+  </div>
+
+  <div>
+    <h2>
+      <%= f.label :floor, "Select Floor" %>
+      <%= f.select :floor, ['0','1','2']%>
+    </h2>
+  </div>
 
   <%= f.submit "Search" %>
 
@@ -38,3 +103,12 @@
 <br/>
 <%= link_to 'Back', surveys_path %>
 </center>
+
+
+
+
+<!-- p>
+  <a class="hovertext" href="#" title="The title attribute of the link appears over the image on hover">
+    <%= image_tag('IPMS1.png') %>
+  </a>
+</p -->

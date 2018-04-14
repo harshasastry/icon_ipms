@@ -33,15 +33,18 @@ class SurveysController < ApplicationController
 
   def searchResults
     if params[:city]
-      city = params[:city]
-      office = params[:office]
-      building = params[:building]
       organisation = params[:organisation]
+      city = params[:city]
+      location = params[:location]
+      unit = params[:unit]
+      tower = params[:tower]
+      floor = params[:floor]
 
-      building = building.split(",").first
-      floor = 1
-      @surveys = Survey.where(organisation: organisation, city: city, office: office, building: building, floor: 1).order(ipms: :desc)
-      @queryString = building + ", " + office +", " + city
+      @surveys = Survey.where(organisation: organisation, city: city, location: location, unit: unit, tower: tower, floor: 1).order(ipms: :desc)
+      if floor and tower and unit and location and city
+        @queryString = floor + ", " + tower + ", " + unit + ", " + location +", " + city
+      end
+
       @organisation = organisation
       #send_file Rails.root.join("public", "IPMS1.png"), type: "image/png", disposition: "inline"
       @IPMS1 = "IPMS1.png"
@@ -78,6 +81,6 @@ class SurveysController < ApplicationController
 
   private
   def survey_params
-    params.require(:survey).permit(:organisation, :city, :office, :building, :floor, :area, :building_type, :component, :ipms)
+    params.require(:survey).permit(:organisation, :city, :location, :unit, :tower, :floor, :area, :building_type, :component, :ipms)
   end
 end
