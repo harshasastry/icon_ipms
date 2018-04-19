@@ -27,6 +27,7 @@
     opacity: 1.0;
   }
 
+
 </style>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -52,7 +53,16 @@
 <br/>
 <!-- scope: :survey removed below -->
 
-<%= form_with url: surveys_searchResults_path, local: true do |f| %>
+<%= form_with url: surveys_searchResults_path, :html => {:id=>'search_form_id'}, local: true do |f| %>
+
+  <% if @orgPlan %>
+    <%= image_tag(@orgPlan, width: "1280", height: "640", alt:"org", usemap:"#orgmap", :style => "border: 1px solid grey") %>
+  <% end %>
+
+  <map name="orgmap">
+    <area shape="circle" coords="1170,80,15" alt="Tower-1" href = "#" onclick="<%= "$('#search_form_id').submit()" %>">
+    <area shape="circle" coords="124,58,8" alt="Venus" href="venus.htm">
+  </map>
 
   <div>
     <h2>
