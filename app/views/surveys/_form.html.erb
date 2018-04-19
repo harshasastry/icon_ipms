@@ -1,0 +1,57 @@
+<%= form_with(model: @survey) do |form| %>
+
+  <div class="field">
+    <%= form.label :organisation %>
+    <%= form.text_field :organisation, id: :survey_organisation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city, id: :survey_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location, id: :survey_location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit %>
+    <%= form.text_field :unit, id: :survey_unit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tower %>
+    <%= form.text_field :tower, id: :survey_tower %>
+  </div>
+
+  <div class="field">
+    <%= form.label :floor %>
+    <%= form.number_field :floor, id: :survey_floor %>
+  </div>
+
+   <div class="field">
+    <%= form.label :area %>
+    <%= form.number_field :area, id: :area, step: :any %>
+  </div>
+
+  <div class="field">
+    <%= form.label :building_type %>
+    <%= form.text_field :building_type, id: :survey_building_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :component %>
+    <%= form.text_field :component, id: :survey_component %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ipms %>
+    <%= form.text_field :ipms, id: :survey_ipms %>
+  </div>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
