@@ -55,6 +55,63 @@
 
 <%= form_with url: surveys_searchResults_path, :html => {:id=>'search_form_id'}, local: true do |f| %>
 
+  <div class="container">
+    <div class="table">
+      <div class="table-header">
+  			<div class="header__item"><a id="Organisation" class="filter__link">Organisation</a></div>
+  			<div class="header__item"><a id="City" class="filter__link">City</a></div>
+        <div class="header__item"><a id="Location" class="filter__link">Location</a></div>
+  			<div class="header__item"><a id="Unit" class="filter__link">Unit</a></div>
+        <div class="header__item"><a id="Tower" class="filter__link">Tower</a></div>
+        <div class="header__item"><a id="Floor" class="filter__link">Floor</a></div>
+      </div>
+      <div class="table-content">
+        <div class="table-row">
+          <div class="table-data">
+            <h2>
+              <!-- %= f.label :organisation, "Organisation" % -->
+              <%= f.select :organisation, ['Zen', 'Disco', 'Comfy'] %>
+            </h2>
+          </div>
+          <div class="table-data">
+            <h2>
+              <!-- %= f.label :city, "City" % -->
+              <%= f.select :city, ['Bangalore', 'Mysuru', 'Chennai']%>
+            </h2>
+          </div>
+          <div class="table-data">
+            <h2>
+              <!-- %= f.label :location, "Location" % -->
+              <%= f.select :location, ['Zen Corporate Office, Sarjapur', 'Zen Tech Ltd, EC1', 'Zen Tech Ltd, EC2', 'Zen Tech Ltd, EC3', 'Zen Tech, Madiwala', 'Zen Tech, ORR']%>
+            </h2>
+          </div>
+          <div class="table-data">
+            <h2>
+              <!-- %= f.label :unit, "Unit" % -->
+              <%= f.select :unit, ['EC1', 'EC2', 'EC3', 'EC4', 'EC5']%>
+            </h2>
+          </div>
+          <div class="table-data">
+            <h2>
+              <!-- %= f.label :tower, "Tower" % -->
+              <%= f.select :tower, ['Tower-1','Tower-2', 'Tower-3']%>
+            </h2>
+          </div>
+          <div class="table-data">
+            <h2>
+              <!-- %= f.label :floor, "Floor" % -->
+              <%= f.select :floor, ['0','1','2']%>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= f.submit "Search" %>
+
+  <br/>
+  <br/>
   <% if @orgPlan %>
     <%= image_tag(@orgPlan, width: "1280", height: "640", alt:"org", usemap:"#orgmap", :style => "border: 1px solid grey") %>
   <% end %>
@@ -63,50 +120,6 @@
     <area shape="circle" coords="1170,80,15" alt="Tower-1" href = "#" onclick="<%= "$('#search_form_id').submit()" %>">
     <area shape="circle" coords="124,58,8" alt="Venus" href="venus.htm">
   </map>
-
-  <div>
-    <h2>
-      <%= f.label :organisation, "Select a Organisation" %>
-      <%= f.select :organisation, ['Zen', 'Disco', 'Comfy'] %>
-    </h2>
-  </div>
-
-  <div>
-    <h2>
-      <%= f.label :city, "Select a City" %>
-      <%= f.select :city, ['Bangalore', 'Mysuru', 'Chennai']%>
-    </h2>
-  </div>
-
-  <div>
-    <h2>
-      <%= f.label :location, "Select Location" %>
-      <%= f.select :location, ['Zen Corporate Office, Sarjapur', 'Zen Tech Ltd, EC1', 'Zen Tech Ltd, EC2', 'Zen Tech Ltd, EC3', 'Zen Tech, Madiwala', 'Zen Tech, ORR']%>
-    </h2>
-  </div>
-
-  <div>
-    <h2>
-      <%= f.label :unit, "Select Unit" %>
-      <%= f.select :unit, ['EC1', 'EC2', 'EC3', 'EC4', 'EC5']%>
-    </h2>
-  </div>
-
-  <div>
-    <h2>
-      <%= f.label :tower, "Select Tower" %>
-      <%= f.select :tower, ['Tower-1','Tower-2', 'Tower-3']%>
-    </h2>
-  </div>
-
-  <div>
-    <h2>
-      <%= f.label :floor, "Select Floor" %>
-      <%= f.select :floor, ['0','1','2']%>
-    </h2>
-  </div>
-
-  <%= f.submit "Search" %>
 
 <% end %>
 
