@@ -144,7 +144,7 @@
   <h1>Search Surveys</h1>
   <hr/>
 
-  <!-- div class="container" -->
+  <div class="container">
   <%= form_with url: surveys_searchResults_path, :html => {:id=>'search_form_id'}, local: true do |f| %>    <div class="table">
       <div class="table-header">
     			<div class="header__item"><a id="Organisation" class="filter__link">Organisation</a>
@@ -164,27 +164,27 @@
         <div class="table-row">
           <div class="table-data styled-select blue semi-square">
               <!-- %= f.label :organisation, "Organisation" % -->
-              <%= f.select :organisation, ['Zen', 'Disco', 'Comfy'] %>
+              <%= f.select :organisation, ['Wipro'] %>
           </div>
           <div class="table-data styled-select blue semi-square">
               <!-- %= f.label :city, "City" % -->
-              <%= f.select :city, ['Bangalore', 'Mysuru', 'Chennai']%>
+              <%= f.select :city, ['All','Bangalore']%>
           </div>
           <div class="table-data styled-select blue semi-square">
               <!-- %= f.label :location, "Location" % -->
-              <%= f.select :location, ['Zen Corporate Office, Sarjapur', 'Zen Tech Ltd, EC1', 'Zen Tech Ltd, EC2', 'Zen Tech Ltd, EC3', 'Zen Tech, Madiwala', 'Zen Tech, ORR']%>
+              <%= f.select :location, ['All', 'Wipro Electronic City']%>
           </div>
           <div class="table-data styled-select blue semi-square">
               <!-- %= f.label :unit, "Unit" % -->
-              <%= f.select :unit, ['EC1', 'EC2', 'EC3', 'EC4', 'EC5']%>
+              <%= f.select :unit, ['All', 'EC-1', 'EC-2', 'EC-3', 'EC-4', 'EC-5']%>
           </div>
           <div class="table-data styled-select blue semi-square">
               <!-- %= f.label :tower, "Tower" % -->
-              <%= f.select :tower, ['Tower-1','Tower-2', 'Tower-3']%>
+              <%= f.select :tower, ['All', 'Tower-1','Tower-2', 'Tower-3', 'Tower-4', 'Utility Block']%>
           </div>
           <div class="table-data styled-select blue semi-square">
               <!-- %= f.label :floor, "Floor" % -->
-              <%= f.select :floor, ['0','1','2']%>
+              <%= f.select :floor, ['All', '0','1','2']%>
           </div>
         </div>
       </div>
@@ -200,7 +200,9 @@
         <area shape="circle" coords="124,58,8" alt="Venus" href="venus.htm">
       </map>
   <% end %>
-
   <br/>
   <%= link_to 'Back', surveys_path %>
+
+  </div>
+
 </center>
