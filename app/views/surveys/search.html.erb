@@ -122,27 +122,30 @@
      padding-left: 15px;
   }
 
+  .button {
+      background-color: #00000A;/*#4CAF50;*/
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 0px 0px;
+      cursor: pointer;
+  }
 </style>
-
-<script>
-</script>
 
 <center>
   <%= image_tag('logo-iconcadd.png') %>
 </center>
 
 <center>
-<h1>Search Surveys</h1>
+  <h1>Search Surveys</h1>
+  <hr/>
 
-<hr/>
-
-<br/>
-<!-- scope: :survey removed below -->
-
-<%= form_with url: surveys_searchResults_path, :html => {:id=>'search_form_id'}, local: true do |f| %>
-
-  <div class="container">
-    <div class="table">
+  <!-- div class="container" -->
+  <%= form_with url: surveys_searchResults_path, :html => {:id=>'search_form_id'}, local: true do |f| %>    <div class="table">
       <div class="table-header">
     			<div class="header__item"><a id="Organisation" class="filter__link">Organisation</a>
           </div>
@@ -185,33 +188,19 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
+      <%= f.submit "Search", :class => 'button'%>
+      <hr/>
 
-  <%= f.submit "Search" %>
+      <% if @orgPlan %>
+        <%= image_tag(@orgPlan, width: "1280", height: "640", alt:"org", usemap:"#orgmap", :style => "border: 1px solid grey") %>
+      <% end %>
 
-  <br/>
-  <br/>
-  <% if @orgPlan %>
-    <%= image_tag(@orgPlan, width: "1280", height: "640", alt:"org", usemap:"#orgmap", :style => "border: 1px solid grey") %>
+      <map name="orgmap">
+        <area shape="circle" coords="1170,80,15" alt="Tower-1" href = "#" onclick = "document.getElementById('search_form_id').submit();">
+        <area shape="circle" coords="124,58,8" alt="Venus" href="venus.htm">
+      </map>
   <% end %>
 
-  <map name="orgmap">
-    <area shape="circle" coords="1170,80,15" alt="Tower-1" href = "#" onclick="<%= "$('#search_form_id').submit()" %>">
-    <area shape="circle" coords="124,58,8" alt="Venus" href="venus.htm">
-  </map>
-
-<% end %>
-
-<br/>
-<%= link_to 'Back', surveys_path %>
+  <br/>
+  <%= link_to 'Back', surveys_path %>
 </center>
-
-
-
-
-<!-- p>
-  <a class="hovertext" href="#" title="The title attribute of the link appears over the image on hover">
-    <%= image_tag('IPMS1.png') %>
-  </a>
-</p -->
