@@ -1,0 +1,7 @@
+tmp/
+tmp/.*
+tmp/*
+ipmsApp/db/
+ipmsApp/log/
+ipmsApp/tmp/
+log/development.log

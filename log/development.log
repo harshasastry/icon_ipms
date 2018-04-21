@@ -15119,3 +15119,51 @@ Completed 200 OK in 53ms (Views: 48.7ms | ActiveRecord: 0.0ms)
 >>>>>>> b71c72a1c55836962191554df311dee7304d188e
 
 
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-04-21 15:04:56 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (293.6ms)
+Completed 200 OK in 405ms (Views: 391.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2018-04-21 15:05:01 +0530
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (0.4ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 121ms (Views: 49.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 15:05:11 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  Rendered surveys/search.html.erb within layouts/application (40.5ms)
+Completed 200 OK in 72ms (Views: 68.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/surveys/searchResults" for 127.0.0.1 at 2018-04-21 15:05:16 +0530
+Processing by SurveysController#searchResults as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gGGnCexaReeF7F5kmWQH3USt/7UoqDoeyztMhDIi2B8+7Uj6GhiABy2z3+vLGcjqi5q48b7UglHyM7qUvAFmlA==", "organisation"=>"Wipro", "city"=>"All", "location"=>"All", "unit"=>"All", "tower"=>"All", "floor"=>"All"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "All"], ["location", "All"], ["unit", "All"], ["tower", "All"], ["floor", "1"], ["ipms", "1"], ["component", "Comp A"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "All"], ["location", "All"], ["unit", "All"], ["tower", "All"], ["floor", "1"], ["ipms", "1"], ["component", "Comp B"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "All"], ["location", "All"], ["unit", "All"], ["tower", "All"], ["floor", "1"], ["ipms", "2"], ["component", "Comp A"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "All"], ["location", "All"], ["unit", "All"], ["tower", "All"], ["floor", "1"], ["ipms", "2"], ["component", "Comp B"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "All"], ["location", "All"], ["unit", "All"], ["tower", "All"], ["floor", "1"], ["ipms", "3"], ["component", "Comp A"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "All"], ["location", "All"], ["unit", "All"], ["tower", "All"], ["floor", "1"], ["ipms", "3"], ["component", "Comp B"]]
+  Rendering surveys/searchResults.html.erb within layouts/application
+  [1m[36mSurvey Load (0.3ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "All"], ["location", "All"], ["unit", "All"], ["tower", "All"], ["floor", "1"]]
+  Rendered surveys/searchResults.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 88ms (Views: 61.0ms | ActiveRecord: 1.6ms)
+
+
