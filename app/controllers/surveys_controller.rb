@@ -70,12 +70,6 @@ class SurveysController < ApplicationController
     end
   end
 
-  def get_drop_down_options
-    val = params[:organisation_id]
-    #Use val to find records
-    options = City.collect{|x| "'#{x.id}' : '#{x.label}'"}    
-    render :text => "{#{options.join(",")}}" 
-  end
 
   def index
     @surveys = Survey.all

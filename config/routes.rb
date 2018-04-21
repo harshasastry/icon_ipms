@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 
   get 'surveys/searchResults'
 
-  get 'surveys/get_drop_down_options'
   # This represents a collection of surveys - basically survey class
   resources :surveys
 

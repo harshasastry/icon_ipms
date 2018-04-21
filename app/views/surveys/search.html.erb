@@ -165,31 +165,30 @@
         <div class="table-row">
           <div class="table-data styled-select blue semi-square">
               <!-- %= f.label :organisation, "Organisation" % -->
-              
-              <%= f.collection_select(:organisation, Organisation.order(:name), :id, :name, {:include_blank => 'Organisation'}) %>
-
-
-              <%# = f.collection_select :organisation, Organisation.order(:name), :id, :name %>
+              <%= f.collection_select(:organisation, Organisation.order(:name), :id, :name, {}, {id: "organisation"}) %>
           </div>
           <div class="table-data styled-select blue semi-square">
               <!-- %= f.label :city, "City" % -->
-              <%= f.select :city, [''] %>
+              <%= f.grouped_collection_select :city, Organisation.order(:name), :cities, :name, :id, :name, {}, {id: "city"}  %>
           </div>
           <div class="table-data styled-select blue semi-square">
               <!-- %= f.label :location, "Location" % -->
-              <%= f.select :location, ['All', 'Wipro Electronic City']%>
+              <%= f.grouped_collection_select :location, City.order(:name), :locations, :name, :id, :name, {}, {id: "location"} %>
           </div>
           <div class="table-data styled-select blue semi-square">
               <!-- %= f.label :unit, "Unit" % -->
-              <%= f.select :unit, ['All', 'EC-1', 'EC-2', 'EC-3', 'EC-4', 'EC-5']%>
+              <%# = f.select :unit, ['All', 'EC-1', 'EC-2', 'EC-3', 'EC-4', 'EC-5']%>
+              <%= f.grouped_collection_select :unit, Location.order(:name), :units, :name, :id, :name, {}, {id: "unit"} %>
           </div>
           <div class="table-data styled-select blue semi-square">
               <!-- %= f.label :tower, "Tower" % -->
-              <%= f.select :tower, ['All', 'Tower-1','Tower-2', 'Tower-3', 'Tower-4', 'Utility Block']%>
+              <%#= f.select :tower, ['All', 'Tower-1','Tower-2', 'Tower-3', 'Tower-4', 'Utility Block']%>
+              <%= f.grouped_collection_select :tower, Unit.order(:name), :towers, :name, :id, :name, {}, {id: "tower"} %>
           </div>
           <div class="table-data styled-select blue semi-square">
               <!-- %= f.label :floor, "Floor" % -->
-              <%= f.select :floor, ['All', '0','1','2']%>
+              <%# = f.select :floor, ['All', '0','1','2']%>
+              <%= f.grouped_collection_select :floor, Tower.order(:name), :floors, :name, :id, :name, {}, {id: "floor"} %>
           </div>
         </div>
       </div>
