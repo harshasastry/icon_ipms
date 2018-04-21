@@ -15602,3 +15602,457 @@ FOREIGN KEY ("tower_id")
   [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "S2"], ["unit_id", 5], ["created_at", "2018-04-21 10:19:38.163824"], ["updated_at", "2018-04-21 10:19:38.163824"]]
   [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 16:02:35 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.3ms)[0m  [1m[34mSELECT  "organisations".* FROM "organisations" ORDER BY "organisations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered surveys/search.html.erb within layouts/application (206.6ms)
+Completed 200 OK in 286ms (Views: 273.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 16:02:50 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT  "organisations".* FROM "organisations" ORDER BY "organisations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered surveys/search.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 59ms (Views: 55.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 16:02:55 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.3ms)[0m  [1m[34mSELECT  "organisations".* FROM "organisations" ORDER BY "organisations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered surveys/search.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 86ms (Views: 82.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 16:04:16 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT  "organisations".* FROM "organisations" ORDER BY "organisations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT  "organisations".* FROM "organisations" ORDER BY "organisations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."organisation_id" = ?[0m  [["organisation_id", 1]]
+  Rendered surveys/search.html.erb within layouts/application (43.8ms)
+Completed 200 OK in 97ms (Views: 93.9ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."city_id" = ?[0m  [["city_id", 1]]
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 16:57:09 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT  "organisations".* FROM "organisations" ORDER BY "organisations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT  "organisations".* FROM "organisations" ORDER BY "organisations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."organisation_id" = ?[0m  [["organisation_id", 1]]
+  Rendered surveys/search.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 106ms (Views: 102.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:03:07 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT  "organisations".* FROM "organisations" ORDER BY "organisations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT  "organisations".* FROM "organisations" ORDER BY "organisations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."organisation_id" = ?[0m  [["organisation_id", 1]]
+  Rendered surveys/search.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 62ms (Views: 58.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:03:13 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT  "organisations".* FROM "organisations" ORDER BY "organisations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT  "organisations".* FROM "organisations" ORDER BY "organisations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."organisation_id" = ?[0m  [["organisation_id", 1]]
+  Rendered surveys/search.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 39ms (Views: 35.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:12:02 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+  Rendered surveys/search.html.erb within layouts/application (51.1ms)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 2, expected 6..8)):
+    168:           </div>
+    169:           <div class="table-data styled-select blue semi-square">
+    170:               <!-- %= f.label :city, "City" % -->
+    171:               <%= f.grouped_collection_select :city, Organisation.order(:name) %>
+    172:           </div>
+    173:           <div class="table-data styled-select blue semi-square">
+    174:               <!-- %= f.label :location, "Location" % -->
+  
+app/views/surveys/search.html.erb:171:in `block in _app_views_surveys_search_html_erb__2425448561093817244_70242163220760'
+app/views/surveys/search.html.erb:148:in `_app_views_surveys_search_html_erb__2425448561093817244_70242163220760'
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:12:46 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  Rendered surveys/search.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 41ms (Views: 36.7ms | ActiveRecord: 0.3ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "organisations" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Infosys"], ["created_at", "2018-04-21 11:43:17.115174"], ["updated_at", "2018-04-21 11:43:17.115174"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:13:19 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  Rendered surveys/search.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 36ms (Views: 33.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:13:36 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  Rendered surveys/search.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 38ms (Views: 35.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:14:05 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+  Rendered surveys/search.html.erb within layouts/application (7.5ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 2, expected 4..6)):
+    164:         <div class="table-row">
+    165:           <div class="table-data styled-select blue semi-square">
+    166:               <!-- %= f.label :organisation, "Organisation" % -->
+    167:               <%= f.collection_select :organisation, [Organisation.all.map{|i| i.name}] %>
+    168:           </div>
+    169:           <div class="table-data styled-select blue semi-square">
+    170:               <!-- %= f.label :city, "City" % -->
+  
+app/views/surveys/search.html.erb:167:in `block in _app_views_surveys_search_html_erb__2425448561093817244_70242121209360'
+app/views/surveys/search.html.erb:148:in `_app_views_surveys_search_html_erb__2425448561093817244_70242121209360'
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:15:10 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.3ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  Rendered surveys/search.html.erb within layouts/application (57.3ms)
+Completed 200 OK in 85ms (Views: 82.6ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT  "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cities" ("name", "organisation_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mysore"], ["organisation_id", 2], ["created_at", "2018-04-21 11:46:03.631530"], ["updated_at", "2018-04-21 11:46:03.631530"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:16:06 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.3ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  Rendered surveys/search.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 40ms (Views: 35.8ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT  "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "cities" SET "organisation_id" = ?, "updated_at" = ? WHERE "cities"."id" = ?[0m  [["organisation_id", 1], ["updated_at", "2018-04-21 11:46:41.212292"], ["id", 2]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:16:43 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  Rendered surveys/search.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 37ms (Views: 34.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:17:40 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" ORDER BY "cities"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 45ms (Views: 42.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:28:02 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" ORDER BY "cities"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (28.7ms)
+Completed 200 OK in 87ms (Views: 84.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:38:48 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" ORDER BY "cities"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 39ms (Views: 36.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:39:35 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (7.1ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 4..6)):
+    168:           </div>
+    169:           <div class="table-data styled-select blue semi-square">
+    170:               <!-- %= f.label :city, "City" % -->
+    171:               <%= f.collection_select :city %>
+    172:           </div>
+    173:           <div class="table-data styled-select blue semi-square">
+    174:               <!-- %= f.label :location, "Location" % -->
+  
+app/views/surveys/search.html.erb:171:in `block in _app_views_surveys_search_html_erb__2425448561093817244_70242120841420'
+app/views/surveys/search.html.erb:148:in `_app_views_surveys_search_html_erb__2425448561093817244_70242120841420'
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:40:46 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 2, expected 4..6)):
+    168:           </div>
+    169:           <div class="table-data styled-select blue semi-square">
+    170:               <!-- %= f.label :city, "City" % -->
+    171:               <%= f.collection_select :city, [''] %>
+    172:           </div>
+    173:           <div class="table-data styled-select blue semi-square">
+    174:               <!-- %= f.label :location, "Location" % -->
+  
+app/views/surveys/search.html.erb:171:in `block in _app_views_surveys_search_html_erb__2425448561093817244_70242163209260'
+app/views/surveys/search.html.erb:148:in `_app_views_surveys_search_html_erb__2425448561093817244_70242163209260'
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:41:02 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 35ms (Views: 32.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:41:35 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 44ms (Views: 40.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:46:12 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 45ms (Views: 42.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:49:24 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.3ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 64ms (Views: 61.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 17:52:43 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 114ms (Views: 112.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:00:11 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.6ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (1289.6ms)
+Completed 200 OK in 1509ms (Views: 1495.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:00:29 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 208ms (Views: 205.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:01:32 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  Rendered surveys/search.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/nithinbharadhwaj/Desktop/my_projects/icon_ipms/app/views/surveys/search.html.erb:168: syntax error, unexpected ',', expecting =>
+n", Organisation.order(:name), :id, :name  );@output_buffer.
+                              ^):
+  
+app/views/surveys/search.html.erb:168: syntax error, unexpected ',', expecting =>
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:02:53 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  Rendered surveys/search.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/nithinbharadhwaj/Desktop/my_projects/icon_ipms/app/views/surveys/search.html.erb:168: syntax error, unexpected ',', expecting =>
+d", Organisation.order(:name), :id, :name  );@output_buffer.
+                              ^):
+  
+app/views/surveys/search.html.erb:168: syntax error, unexpected ',', expecting =>
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:04:27 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.5ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 218ms (Views: 215.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:05:32 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.3ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 376ms (Views: 373.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:05:37 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 38ms (Views: 35.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:06:40 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 42ms (Views: 38.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:09:30 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 83ms (Views: 79.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:10:18 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.3ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 39ms (Views: 36.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:10:34 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 54ms (Views: 50.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:11:05 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 175ms (Views: 172.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:11:31 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 173ms (Views: 170.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:12:29 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 169ms (Views: 165.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:12:45 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 176ms (Views: 173.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:13:29 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.3ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (584.6ms)
+Completed 200 OK in 774ms (Views: 757.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:18:40 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 109ms (Views: 106.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:21:15 +0530
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.3ms)[0m  [1m[34mSELECT  "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  Rendered surveys/search.html.erb within layouts/application (377.3ms)
+Completed 500 Internal Server Error in 395ms (ActiveRecord: 1.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Organisation with 'id'=all):
+  
+app/views/surveys/search.html.erb:169:in `block in _app_views_surveys_search_html_erb___1822104218268244259_70279107333360'
+app/views/surveys/search.html.erb:149:in `_app_views_surveys_search_html_erb___1822104218268244259_70279107333360'
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-21 18:22:03 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  Rendered surveys/search.html.erb within layouts/application (38.5ms)
+Completed 200 OK in 95ms (Views: 91.6ms | ActiveRecord: 1.0ms)
+
+
