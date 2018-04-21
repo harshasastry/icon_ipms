@@ -29,6 +29,7 @@ class SurveysController < ApplicationController
   end
 
   def search
+    @orgPlan = 'WIPRO-EC-CAMPUS.png'
   end
 
   def searchResults

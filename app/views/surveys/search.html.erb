@@ -1,114 +1,208 @@
 <%= stylesheet_link_tag 'dropdown.css' %>
 <style type="text/css">
 
-  a.hovertext {
-    position: relative;
-    width: 500px;
-    text-decoration: none !important;
-    text-align: center;
-  }
-  a.hovertext::after {
-    content: attr(title);
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    padding: 0.5em 20px;
-    width: 460px;
-    background: rgba(0,0,0,0.8);
-    text-decoration: none !important;
-    color: #fff;
-    opacity: 0;
-    -webkit-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -o-transition: 0.5s;
-    -ms-transition: 0.5s;
-  }
-  a.hovertext:hover::after, a.hovertext:focus::after {
-    opacity: 1.0;
+  /* -------------------- Page Styles (not required) */
+  div { margin: 5px; }
+
+  /* -------------------- Select Box Styles: bavotasan.com Method (with special adaptations by ericrasch.com) */
+  /* -------------------- Source: http://bavotasan.com/2011/style-select-box-using-only-css/ */
+  .styled-select {
+     background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+     height: 29px;
+     overflow: hidden;
+     width: 200px;
   }
 
+  .styled-select select {
+     background: transparent;
+     border: none;
+     font-size: 10px;
+     height: 29px;
+     padding: 5px; /* If you add too much padding here, the options won't show in IE */
+     width: 268px;
+  }
+
+  .styled-select.slate {
+     background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+     height: 34px;
+     width: 240px;
+  }
+
+  .styled-select.slate select {
+     border: 1px solid #ccc;
+     font-size: 16px;
+     height: 34px;
+     width: 268px;
+  }
+
+  /* -------------------- Rounded Corners */
+  .rounded {
+     -webkit-border-radius: 20px;
+     -moz-border-radius: 20px;
+     border-radius: 20px;
+  }
+
+  .semi-square {
+     -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+     border-radius: 5px;
+  }
+
+  /* -------------------- Colors: Background */
+  .slate   { background-color: #ddd; }
+  .green   { background-color: #779126; }
+  .blue    { background-color: #3b8ec2; }
+  .yellow  { background-color: #eec111; }
+  .black   { background-color: #000; }
+
+  /* -------------------- Colors: Text */
+  .slate select   { color: #000; }
+  .green select   { color: #fff; }
+  .blue select    { color: #fff; }
+  .yellow select  { color: #000; }
+  .black select   { color: #fff; }
+
+
+  /* -------------------- Select Box Styles: danielneumann.com Method */
+  /* -------------------- Source: http://danielneumann.com/blog/how-to-style-dropdown-with-css-only/ */
+  #mainselection select {
+     border: 0;
+     color: #EEE;
+     background: transparent;
+     font-size: 20px;
+     font-weight: bold;
+     padding: 2px 10px;
+     width: 378px;
+     *width: 350px;
+     *background: #58B14C;
+     -webkit-appearance: none;
+  }
+
+  #mainselection {
+     overflow:hidden;
+     width:350px;
+     -moz-border-radius: 9px 9px 9px 9px;
+     -webkit-border-radius: 9px 9px 9px 9px;
+     border-radius: 9px 9px 9px 9px;
+     box-shadow: 1px 1px 11px #330033;
+     background: #58B14C url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
+  }
+
+
+  /* -------------------- Select Box Styles: stackoverflow.com Method */
+  /* -------------------- Source: http://stackoverflow.com/a/5809186 */
+  select#soflow, select#soflow-color {
+     -webkit-appearance: button;
+     -webkit-border-radius: 2px;
+     -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+     -webkit-padding-end: 20px;
+     -webkit-padding-start: 2px;
+     -webkit-user-select: none;
+     background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+     background-position: 97% center;
+     background-repeat: no-repeat;
+     border: 1px solid #AAA;
+     color: #555;
+     font-size: inherit;
+     margin: 20px;
+     overflow: hidden;
+     padding: 5px 10px;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     width: 300px;
+  }
+
+  select#soflow-color {
+     color: #fff;
+     background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
+     background-color: #779126;
+     -webkit-border-radius: 20px;
+     -moz-border-radius: 20px;
+     border-radius: 20px;
+     padding-left: 15px;
+  }
+
+  .button {
+      background-color: #00000A;/*#4CAF50;*/
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 0px 0px;
+      cursor: pointer;
+  }
 </style>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
-<script>
-  $(function()
-  {
-    $("#organisation").change(function() {
-      $("#text-two").load("textdata/" + $(this).val() + ".txt");
-    });
-  });
-</script>
 
 <center>
   <%= image_tag('logo-iconcadd.png') %>
 </center>
 
 <center>
-<h1>Search Surveys</h1>
+  <h1>Search Surveys</h1>
+  <hr/>
 
-<hr/>
+  <div class="container">
+  <%= form_with url: surveys_searchResults_path, :html => {:id=>'search_form_id'}, local: true do |f| %>    <div class="table">
+      <div class="table-header">
+    			<div class="header__item"><a id="Organisation" class="filter__link">Organisation</a>
+          </div>
+    			<div class="header__item"><a id="City" class="filter__link">City</a>
+          </div>
+          <div class="header__item"><a id="Location" class="filter__link">Location</a>
+          </div>
+    			<div class="header__item"><a id="Unit" class="filter__link">Unit</a>
+          </div>
+          <div class="header__item"><a id="Tower" class="filter__link">Tower</a>
+          </div>
+          <div class="header__item"><a id="Floor" class="filter__link">Floor</a>
+          </div>
+      </div>
+      <div class="table-content">
+        <div class="table-row">
+          <div class="table-data styled-select blue semi-square">
+              <!-- %= f.label :organisation, "Organisation" % -->
+              <%= f.select :organisation, ['Wipro'] %>
+          </div>
+          <div class="table-data styled-select blue semi-square">
+              <!-- %= f.label :city, "City" % -->
+              <%= f.select :city, ['All','Bangalore']%>
+          </div>
+          <div class="table-data styled-select blue semi-square">
+              <!-- %= f.label :location, "Location" % -->
+              <%= f.select :location, ['All', 'Wipro Electronic City']%>
+          </div>
+          <div class="table-data styled-select blue semi-square">
+              <!-- %= f.label :unit, "Unit" % -->
+              <%= f.select :unit, ['All', 'EC-1', 'EC-2', 'EC-3', 'EC-4', 'EC-5']%>
+          </div>
+          <div class="table-data styled-select blue semi-square">
+              <!-- %= f.label :tower, "Tower" % -->
+              <%= f.select :tower, ['All', 'Tower-1','Tower-2', 'Tower-3', 'Tower-4', 'Utility Block']%>
+          </div>
+          <div class="table-data styled-select blue semi-square">
+              <!-- %= f.label :floor, "Floor" % -->
+              <%= f.select :floor, ['All', '0','1','2']%>
+          </div>
+        </div>
+      </div>
+      <%= f.submit "Search", :class => 'button'%>
+      <hr/>
 
-<br/>
-<!-- scope: :survey removed below -->
+      <% if @orgPlan %>
+        <%= image_tag(@orgPlan, width: "1280", height: "640", alt:"org", usemap:"#orgmap", :style => "border: 1px solid grey") %>
+      <% end %>
 
-<%= form_with url: surveys_searchResults_path, local: true do |f| %>
+      <map name="orgmap">
+        <area shape="circle" coords="1170,80,15" alt="Tower-1" href = "#" onclick = "document.getElementById('search_form_id').submit();">
+        <area shape="circle" coords="124,58,8" alt="Venus" href="venus.htm">
+      </map>
+  <% end %>
+  <br/>
+  <%= link_to 'Back', surveys_path %>
 
-  <div>
-    <h2>
-      <%= f.label :organisation, "Select a Organisation" %>
-      <%= f.select :organisation, ['Zen', 'Disco', 'Comfy'] %>
-    </h2>
   </div>
 
-  <div>
-    <h2>
-      <%= f.label :city, "Select a City" %>
-      <%= f.select :city, ['Bangalore', 'Mysuru', 'Chennai']%>
-    </h2>
-  </div>
-
-  <div>
-    <h2>
-      <%= f.label :location, "Select Location" %>
-      <%= f.select :location, ['Zen Corporate Office, Sarjapur', 'Zen Tech Ltd, EC1', 'Zen Tech Ltd, EC2', 'Zen Tech Ltd, EC3', 'Zen Tech, Madiwala', 'Zen Tech, ORR']%>
-    </h2>
-  </div>
-
-  <div>
-    <h2>
-      <%= f.label :unit, "Select Unit" %>
-      <%= f.select :unit, ['EC1', 'EC2', 'EC3', 'EC4', 'EC5']%>
-    </h2>
-  </div>
-
-  <div>
-    <h2>
-      <%= f.label :tower, "Select Tower" %>
-      <%= f.select :tower, ['Tower-1','Tower-2', 'Tower-3']%>
-    </h2>
-  </div>
-
-  <div>
-    <h2>
-      <%= f.label :floor, "Select Floor" %>
-      <%= f.select :floor, ['0','1','2']%>
-    </h2>
-  </div>
-
-  <%= f.submit "Search" %>
-
-<% end %>
-
-<br/>
-<%= link_to 'Back', surveys_path %>
 </center>
-
-
-
-
-<!-- p>
-  <a class="hovertext" href="#" title="The title attribute of the link appears over the image on hover">
-    <%= image_tag('IPMS1.png') %>
-  </a>
-</p -->
