@@ -1,35 +1,30 @@
-jQuery(function() 
+jQuery(function()
 {
-  var cities;
-  cities = $('#city').html();
-  
-  
-   return $('#organisation').change(function()
+    return $('#organisation').change(function()
    {
+      var cities;
+      cities = $('#city').html();
    	   $('#city').empty();
        var org, options;
        org = $('#organisation :selected').text();
        options = $(cities).filter("optgroup[label=" + org + "]").html();
-   
-		    if (options) 
+
+		    if (options)
 		    {
 		      return $('#city').html(options);
 		    }
-		    else 
+		    else
 		    {
 		      return $('#city').empty();
 		    }
   	});
 });
 
-jQuery(function() 
+jQuery(function()
 {
-   var locations;
-   // Below for locations
-   locations = $('#location').html();
-   
-	console.log("Locations : "+locations);
     return $('#city').change(function() {
+     var locations;
+     locations = $('#location').html();
        $('#location').empty();
        var cty, options;
        cty = $('#city :selected').text();
@@ -41,16 +36,15 @@ jQuery(function()
           return $('#location').empty();
         }
     });
-});	
+});
 
 //1
-jQuery(function() 
+jQuery(function()
 {
-   var units;
-   // Below for locations
-   units = $('#unit').html();
-   
+
    	return $('#location').change(function() {
+     var units;
+     units = $('#unit').html();
    	   $('#unit').empty();
        var loc, options;
        loc = $('#location :selected').text();
@@ -62,16 +56,15 @@ jQuery(function()
           return $('#unit').empty();
         }
     });
-});	
+});
 
 //2
-jQuery(function() 
+jQuery(function()
 {
-   var towers;
-   // Below for locations
-   towers = $('#tower').html();
-   
    	return $('#unit').change(function() {
+     var towers;
+     towers = $('#tower').html();
+
    	   $('#tower').empty();
        var unt, options;
        unt = $('#unit :selected').text();
@@ -84,16 +77,14 @@ jQuery(function()
           return $('#tower').empty();
         }
     });
-});	
+});
 
 //3
-jQuery(function() 
+jQuery(function()
 {
-   var floors;
-   // Below for locations
-   floors = $('#floor').html();
-   
    	return $('#tower').change(function() {
+     var floors;
+     floors = $('#floor').html();
    	   $('#floor').empty();
        var twr, options;
        twr = $('#tower :selected').text();
@@ -106,8 +97,4 @@ jQuery(function()
           return $('#floor').empty();
         }
     });
-});	
-
-   
-
-
+});
