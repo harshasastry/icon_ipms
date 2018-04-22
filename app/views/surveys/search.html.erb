@@ -146,7 +146,7 @@
   <hr/>
 
   <div class="container">
-  <%= form_with url: surveys_searchResults_path, :html => {:id=>'search_form_id'} do |f| %>    <div class="table">
+  <%= form_with url: surveys_searchResults_path, :html => {:id=>'search_form_id'}, local: true do |f| %>    <div class="table">
       <div class="table-header">
     			<div class="header__item"><a id="Organisation" class="filter__link">Organisation</a>
           </div>
