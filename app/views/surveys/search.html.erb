@@ -136,7 +136,6 @@
   }
 </style>
 
-
 <center>
   <%= image_tag('logo-iconcadd.png') %>
 </center>
@@ -146,7 +145,7 @@
   <hr/>
 
   <div class="container">
-  <%= form_with url: surveys_searchResults_path, :html => {:id=>'search_form_id'} do |f| %>    <div class="table">
+  <%= form_with url: surveys_searchResults_path, :html => {:id=>'search_form_id'}, local: true do |f| %>    <div class="table">
       <div class="table-header">
     			<div class="header__item"><a id="Organisation" class="filter__link">Organisation</a>
           </div>
@@ -165,30 +164,30 @@
         <div class="table-row">
           <div class="table-data styled-select blue semi-square">
               <!-- %= f.label :organisation, "Organisation" % -->
-              <%= f.collection_select(:organisation, Organisation.order(:name), :id, :name, {}, {id: "organisation"}) %>
+              <%= f.collection_select(:organisation, Organisation.order(:name), :id, :name, {:include_blank => 'Select Organisation'}, {id: "organisation"}) %>
           </div>
           <div class="table-data styled-select blue semi-square">
               <!-- %= f.label :city, "City" % -->
-              <%= f.grouped_collection_select :city, Organisation.order(:name), :cities, :name, :id, :name, {}, {id: "city"}  %>
+              <%= f.grouped_collection_select :city, Organisation.order(:name), :cities, :name, :id, :name, {:include_blank => 'Select City'}, {id: "city"}  %>
           </div>
           <div class="table-data styled-select blue semi-square">
               <!-- %= f.label :location, "Location" % -->
-              <%= f.grouped_collection_select :location, City.order(:name), :locations, :name, :id, :name, {}, {id: "location"} %>
+              <%= f.grouped_collection_select :location, City.order(:name), :locations, :name, :id, :name, {:include_blank => 'Select Location'}, {id: "location"} %>
           </div>
           <div class="table-data styled-select blue semi-square">
               <!-- %= f.label :unit, "Unit" % -->
               <%# = f.select :unit, ['All', 'EC-1', 'EC-2', 'EC-3', 'EC-4', 'EC-5']%>
-              <%= f.grouped_collection_select :unit, Location.order(:name), :units, :name, :id, :name, {}, {id: "unit"} %>
+              <%= f.grouped_collection_select :unit, Location.order(:name), :units, :name, :id, :name, {:include_blank => 'Select Unit'}, {id: "unit"} %>
           </div>
           <div class="table-data styled-select blue semi-square">
               <!-- %= f.label :tower, "Tower" % -->
               <%#= f.select :tower, ['All', 'Tower-1','Tower-2', 'Tower-3', 'Tower-4', 'Utility Block']%>
-              <%= f.grouped_collection_select :tower, Unit.order(:name), :towers, :name, :id, :name, {}, {id: "tower"} %>
+              <%= f.grouped_collection_select :tower, Unit.order(:name), :towers, :name, :id, :name, {:include_blank => 'Select Tower'}, {id: "tower"} %>
           </div>
           <div class="table-data styled-select blue semi-square">
               <!-- %= f.label :floor, "Floor" % -->
               <%# = f.select :floor, ['All', '0','1','2']%>
-              <%= f.grouped_collection_select :floor, Tower.order(:name), :floors, :name, :id, :name, {}, {id: "floor"} %>
+              <%= f.grouped_collection_select :floor, Tower.order(:name), :floors, :name, :id, :name, {:include_blank => 'Select Floor'}, {id: "floor"} %>
           </div>
         </div>
       </div>
