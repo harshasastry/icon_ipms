@@ -17974,3 +17974,155 @@ Processing by SurveysController#search as HTML
 Completed 200 OK in 79ms (Views: 70.5ms | ActiveRecord: 5.3ms)
 
 
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-22 12:35:40 +0530
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.3ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."organisation_id" = ?[0m  [["organisation_id", 1]]
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" ORDER BY "cities"."name" ASC[0m
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."city_id" = ?[0m  [["city_id", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC[0m
+  [1m[36mUnit Load (0.2ms)[0m  [1m[34mSELECT "units".* FROM "units" WHERE "units"."location_id" = ?[0m  [["location_id", 1]]
+  [1m[36mUnit Load (0.2ms)[0m  [1m[34mSELECT "units".* FROM "units" ORDER BY "units"."name" ASC[0m
+  [1m[36mTower Load (0.1ms)[0m  [1m[34mSELECT "towers".* FROM "towers" WHERE "towers"."unit_id" = ?[0m  [["unit_id", 1]]
+  [1m[36mTower Load (0.1ms)[0m  [1m[34mSELECT "towers".* FROM "towers" WHERE "towers"."unit_id" = ?[0m  [["unit_id", 2]]
+  [1m[36mTower Load (0.2ms)[0m  [1m[34mSELECT "towers".* FROM "towers" WHERE "towers"."unit_id" = ?[0m  [["unit_id", 3]]
+  [1m[36mTower Load (0.2ms)[0m  [1m[34mSELECT "towers".* FROM "towers" WHERE "towers"."unit_id" = ?[0m  [["unit_id", 4]]
+  [1m[36mTower Load (0.2ms)[0m  [1m[34mSELECT "towers".* FROM "towers" WHERE "towers"."unit_id" = ?[0m  [["unit_id", 5]]
+  [1m[36mTower Load (0.2ms)[0m  [1m[34mSELECT "towers".* FROM "towers" ORDER BY "towers"."name" ASC[0m
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 15]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 10]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 31]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 16]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 34]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 35]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 1]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 18]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 19]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 20]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 21]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 22]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 23]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 24]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 25]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 26]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 2]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 27]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 28]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 29]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 30]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 3]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 4]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 6]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 7]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 8]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 9]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 12]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 13]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 14]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 17]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 5]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 11]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 32]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 33]]
+  Rendered surveys/search.html.erb within layouts/application (320.2ms)
+Completed 200 OK in 417ms (Views: 396.7ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-23 12:44:38 +0530
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (204.5ms)
+Completed 200 OK in 278ms (Views: 267.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2018-04-23 12:44:42 +0530
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (0.4ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 44ms (Views: 36.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-23 12:44:43 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.4ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."organisation_id" = ?[0m  [["organisation_id", 1]]
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" ORDER BY "cities"."name" ASC[0m
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."city_id" = ?[0m  [["city_id", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC[0m
+  [1m[36mUnit Load (0.6ms)[0m  [1m[34mSELECT "units".* FROM "units" WHERE "units"."location_id" = ?[0m  [["location_id", 1]]
+  [1m[36mUnit Load (0.2ms)[0m  [1m[34mSELECT "units".* FROM "units" ORDER BY "units"."name" ASC[0m
+  [1m[36mTower Load (0.5ms)[0m  [1m[34mSELECT "towers".* FROM "towers" WHERE "towers"."unit_id" = ?[0m  [["unit_id", 1]]
+  [1m[36mTower Load (0.1ms)[0m  [1m[34mSELECT "towers".* FROM "towers" WHERE "towers"."unit_id" = ?[0m  [["unit_id", 2]]
+  [1m[36mTower Load (0.1ms)[0m  [1m[34mSELECT "towers".* FROM "towers" WHERE "towers"."unit_id" = ?[0m  [["unit_id", 3]]
+  [1m[36mTower Load (0.1ms)[0m  [1m[34mSELECT "towers".* FROM "towers" WHERE "towers"."unit_id" = ?[0m  [["unit_id", 4]]
+  [1m[36mTower Load (0.1ms)[0m  [1m[34mSELECT "towers".* FROM "towers" WHERE "towers"."unit_id" = ?[0m  [["unit_id", 5]]
+  [1m[36mTower Load (0.2ms)[0m  [1m[34mSELECT "towers".* FROM "towers" ORDER BY "towers"."name" ASC[0m
+  [1m[36mFloor Load (0.3ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 15]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 10]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 31]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 16]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 34]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 35]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 1]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 18]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 19]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 20]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 21]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 22]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 23]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 24]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 25]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 26]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 2]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 27]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 28]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 29]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 30]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 3]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 4]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 6]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 7]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 8]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 9]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 12]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 13]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 14]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 17]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 5]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 11]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 32]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 33]]
+  Rendered surveys/search.html.erb within layouts/application (149.5ms)
+Completed 200 OK in 212ms (Views: 195.2ms | ActiveRecord: 10.0ms)
+
+
+Started POST "/surveys/searchResults" for 127.0.0.1 at 2018-04-23 12:44:58 +0530
+Processing by SurveysController#searchResults as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A+MAvJ1D2plM3LtV53uK7ArfQzdHIRc8BfgGjg+Yfzl83soDatyemnz0GfQ/TsEOsOM+WAcotwZIHWwOk9jfnA==", "organisation"=>"Wipro", "city"=>"Bangalore", "location"=>"Wipro Electronic City", "unit"=>"EC-2", "tower"=>"TOWER-3", "floor"=>"", "commit"=>"Search"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "Bangalore"], ["location", "Wipro Electronic City"], ["unit", "EC-2"], ["tower", "TOWER-3"], ["floor", "1"], ["ipms", "1"], ["component", "Comp A"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "Bangalore"], ["location", "Wipro Electronic City"], ["unit", "EC-2"], ["tower", "TOWER-3"], ["floor", "1"], ["ipms", "1"], ["component", "Comp B"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "Bangalore"], ["location", "Wipro Electronic City"], ["unit", "EC-2"], ["tower", "TOWER-3"], ["floor", "1"], ["ipms", "2"], ["component", "Comp A"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "Bangalore"], ["location", "Wipro Electronic City"], ["unit", "EC-2"], ["tower", "TOWER-3"], ["floor", "1"], ["ipms", "2"], ["component", "Comp B"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "Bangalore"], ["location", "Wipro Electronic City"], ["unit", "EC-2"], ["tower", "TOWER-3"], ["floor", "1"], ["ipms", "3"], ["component", "Comp A"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "Bangalore"], ["location", "Wipro Electronic City"], ["unit", "EC-2"], ["tower", "TOWER-3"], ["floor", "1"], ["ipms", "3"], ["component", "Comp B"]]
+  Rendering surveys/searchResults.html.erb within layouts/application
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "Bangalore"], ["location", "Wipro Electronic City"], ["unit", "EC-2"], ["tower", "TOWER-3"], ["floor", "1"]]
+  Rendered surveys/searchResults.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 62ms (Views: 51.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2018-04-23 12:45:05 +0530
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 60ms (Views: 56.1ms | ActiveRecord: 0.2ms)
+
+
