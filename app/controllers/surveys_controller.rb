@@ -41,9 +41,10 @@ class SurveysController < ApplicationController
       tower = params[:tower]
       floor = params[:floor]
 
-      @surveys = Survey.where(organisation: organisation, city: city, location: location, unit: unit, tower: tower, floor: 1).order(ipms: :desc)
+      @surveys = Survey.where(organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(component: :desc)
       if floor and tower and unit and location and city
-        @queryString = floor + ", " + tower + ", " + unit + ", " + location +", " + city
+        # @queryString = floor + ", " + tower + ", " + unit + ", " + location +", " + city
+        @queryString = tower + ", " + unit + ", " + location + ", " + city 
       end
 
       @organisation = organisation
@@ -52,11 +53,23 @@ class SurveysController < ApplicationController
       @IPMS2 = "IPMS2.png"
       @IPMS3 = "IPMS3.png"
 
+      # binding.pry
       # do the calculation part
-      @ipms_1_comp_a = @surveys.where(ipms: 1, component: "Comp A").pluck(:area).first.to_f
-      @ipms_1_comp_b = @surveys.where(ipms: 1, component: "Comp B").pluck(:area).first.to_f
-      @ipms_1_total_area = @ipms_1_comp_a + @ipms_1_comp_b
+      @floors_ipms_1_comp_a = @surveys.where(ipms: 1, component: "Comp A", organisation: organisation, city: city, location: location, unit: unit, tower: tower)
+      # init an array
+      @floors_n_area_ipms_1 = []
+      @floors_ipms_1_comp_a.each do |r|
+        @floors_n_area_ipms_1.push(floor: r[:floor], area: r[:area])
+      end
 
+
+
+
+
+      @ipms_1_comp_b = @surveys.where(ipms: 1, component: "Comp B", organisation: organisation, city: city, location: location, unit: unit, tower: tower).pluck(:area).first.to_f
+      @ipms_1_total_area = 100
+      
+ 
       @ipms_2_comp_a = @surveys.where(ipms: 2, component: "Comp A").pluck(:area).first.to_f
       @ipms_2_comp_b = @surveys.where(ipms: 2, component: "Comp B").pluck(:area).first.to_f
       @ipms_2_comp_c = @surveys.where(ipms: 2, component: "Comp C").pluck(:area).first.to_f

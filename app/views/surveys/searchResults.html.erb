@@ -10,40 +10,25 @@
 <br/>
 
 <h3>
-  Results for Floor <%= @queryString %>
+  Results for Tower <%= @queryString %>
 </h3>
-
-
-<!-- table border="true">
-    <tr>
-      <th>IPMS</th>
-      <th>Component</th>
-      <th>Area</th>
-    </tr>
-    <% @surveys.each do |survey| %>
-    <tr>
-      <td><%= survey.ipms %></td>
-      <td><%= survey.component %></td>
-      <td><%= survey.area %></td>
-    </tr>
-    <% end %>
-</table -->
 
 
 <div class="container">
 	<div class="table">
 		<div class="table-header">
-			<div class="header__item"><a id="IPMS" class="filter__link" href="#">IPMS</a></div>
-			<div class="header__item"><a id="ComponentA" class="filter__link" href="#">ComponentA</a></div>
-      <div class="header__item"><a id="ComponentB" class="filter__link" href="#">ComponentB</a></div>
-			<div class="header__item"><a id="TotalArea" class="filter__link" href="#">Total Area</a></div>
+			<div class="header__item"><a id="floor" class="filter__link" href="#">Floor</a></div>
+      <% @floors_n_area_ipms_1.each do |r| %>
+        <div class="header__item"><a id="floor" class="filter__link" href="#"> <%= r[:floor] %> </a></div>  
+      <% end %>
+
+      <div class="header__item"><a id="TotalArea" class="filter__link" href="#">Total Area</a></div>
     </div>
 		<div class="table-content">
-      <%# @surveys.each do |survey| %>
-			<div class="table-row">
-        <div class="table-data">IPMS 1</div>
-        <div class="table-data"><%= @ipms_1_comp_a %></div>
-        <div class="table-data"><%= @ipms_1_comp_b %></div>
+      <div class="table-row">
+        <% @floors_n_area_ipms_1.each do |r| %>
+          <div class="table-data"><%= r[:area] %></div>
+        <% end %>
         <div class="table-data"><%= @ipms_1_total_area %></div>
 			</div>
       <div class="table-row">
@@ -59,7 +44,7 @@
         <div class="table-data"><%= @ipms_3_total_area %></div>
       </div>
 
-      <%# end %>
+    
     </div>
 	</div>
 </div>
