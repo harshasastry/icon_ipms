@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180421095951) do
+ActiveRecord::Schema.define(version: 20180428063214) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20180421095951) do
     t.integer "tower_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["tower_id"], name: "index_floors_on_tower_id"
   end
 

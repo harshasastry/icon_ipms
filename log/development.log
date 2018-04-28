@@ -18126,3 +18126,1018 @@ Processing by SurveysController#index as HTML
 Completed 200 OK in 60ms (Views: 56.1ms | ActiveRecord: 0.2ms)
 
 
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (17.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSurveys (20180404035627)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "organisation" text, "city" text, "location" text, "unit" text, "tower" text, "floor" text, "area" decimal, "building_type" text, "component" text, "ipms" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180404035627"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOrganisations (20180421094635)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "organisations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180421094635"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCities (20180421094644)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "cities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "organisation_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_b04df2566c"
+FOREIGN KEY ("organisation_id")
+  REFERENCES "organisations" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_cities_on_organisation_id" ON "cities" ("organisation_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180421094644"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateLocations (20180421095619)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "city_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_6c1a48c78d"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_locations_on_city_id" ON "locations" ("city_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180421095619"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUnits (20180421095829)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "units" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "location_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_35fbcbcced"
+FOREIGN KEY ("location_id")
+  REFERENCES "locations" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_units_on_location_id" ON "units" ("location_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180421095829"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTowers (20180421095909)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "towers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_3e85f1a2b0"
+FOREIGN KEY ("unit_id")
+  REFERENCES "units" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_towers_on_unit_id" ON "towers" ("unit_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180421095909"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFloors (20180421095951)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "floors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tower_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_e455902a1a"
+FOREIGN KEY ("tower_id")
+  REFERENCES "towers" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_floors_on_tower_id" ON "floors" ("tower_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180421095951"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-28 06:30:56.197096"], ["updated_at", "2018-04-28 06:30:56.197096"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_cities_on_organisation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_cities_on_organisation_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_floors_on_tower_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_floors_on_tower_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_locations_on_city_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_locations_on_city_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_towers_on_unit_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_towers_on_unit_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_units_on_location_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_units_on_location_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "organisations" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Wipro"], ["created_at", "2018-04-28 06:31:09.685636"], ["updated_at", "2018-04-28 06:31:09.685636"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cities" ("name", "organisation_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Bangalore"], ["organisation_id", 1], ["created_at", "2018-04-28 06:31:09.740143"], ["updated_at", "2018-04-28 06:31:09.740143"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."name" = ? LIMIT ?[0m  [["name", "Bangalore"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "locations" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Wipro Electronic City"], ["city_id", 1], ["created_at", "2018-04-28 06:31:09.812933"], ["updated_at", "2018-04-28 06:31:09.812933"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "units" ("name", "location_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "EC-1"], ["location_id", 1], ["created_at", "2018-04-28 06:31:09.853214"], ["updated_at", "2018-04-28 06:31:09.853214"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "units" ("name", "location_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "EC-2"], ["location_id", 1], ["created_at", "2018-04-28 06:31:09.856752"], ["updated_at", "2018-04-28 06:31:09.856752"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "units" ("name", "location_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "EC-3"], ["location_id", 1], ["created_at", "2018-04-28 06:31:09.859944"], ["updated_at", "2018-04-28 06:31:09.859944"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "units" ("name", "location_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "EC-4"], ["location_id", 1], ["created_at", "2018-04-28 06:31:09.863185"], ["updated_at", "2018-04-28 06:31:09.863185"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "units" ("name", "location_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "EC-5"], ["location_id", 1], ["created_at", "2018-04-28 06:31:09.866657"], ["updated_at", "2018-04-28 06:31:09.866657"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-1"], ["unit_id", 1], ["created_at", "2018-04-28 06:31:09.903486"], ["updated_at", "2018-04-28 06:31:09.903486"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-2"], ["unit_id", 1], ["created_at", "2018-04-28 06:31:09.907491"], ["updated_at", "2018-04-28 06:31:09.907491"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-3"], ["unit_id", 1], ["created_at", "2018-04-28 06:31:09.911086"], ["updated_at", "2018-04-28 06:31:09.911086"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-4"], ["unit_id", 1], ["created_at", "2018-04-28 06:31:09.914317"], ["updated_at", "2018-04-28 06:31:09.914317"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "UTILITY BLOCK"], ["unit_id", 1], ["created_at", "2018-04-28 06:31:09.918140"], ["updated_at", "2018-04-28 06:31:09.918140"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-5"], ["unit_id", 2], ["created_at", "2018-04-28 06:31:09.921534"], ["updated_at", "2018-04-28 06:31:09.921534"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-6"], ["unit_id", 2], ["created_at", "2018-04-28 06:31:09.924642"], ["updated_at", "2018-04-28 06:31:09.924642"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-7"], ["unit_id", 2], ["created_at", "2018-04-28 06:31:09.928144"], ["updated_at", "2018-04-28 06:31:09.928144"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-7A"], ["unit_id", 2], ["created_at", "2018-04-28 06:31:09.931919"], ["updated_at", "2018-04-28 06:31:09.931919"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "LEARNING CENTER"], ["unit_id", 2], ["created_at", "2018-04-28 06:31:09.936421"], ["updated_at", "2018-04-28 06:31:09.936421"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "UTILITY BLOCK"], ["unit_id", 2], ["created_at", "2018-04-28 06:31:09.941097"], ["updated_at", "2018-04-28 06:31:09.941097"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-8"], ["unit_id", 3], ["created_at", "2018-04-28 06:31:09.944698"], ["updated_at", "2018-04-28 06:31:09.944698"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-8A"], ["unit_id", 3], ["created_at", "2018-04-28 06:31:09.951115"], ["updated_at", "2018-04-28 06:31:09.951115"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-8B (GCC)"], ["unit_id", 3], ["created_at", "2018-04-28 06:31:09.954693"], ["updated_at", "2018-04-28 06:31:09.954693"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ACCESS CONTROL"], ["unit_id", 3], ["created_at", "2018-04-28 06:31:09.958020"], ["updated_at", "2018-04-28 06:31:09.958020"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "RECEPTION"], ["unit_id", 3], ["created_at", "2018-04-28 06:31:09.961169"], ["updated_at", "2018-04-28 06:31:09.961169"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-9"], ["unit_id", 4], ["created_at", "2018-04-28 06:31:09.964838"], ["updated_at", "2018-04-28 06:31:09.964838"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-10"], ["unit_id", 4], ["created_at", "2018-04-28 06:31:09.968285"], ["updated_at", "2018-04-28 06:31:09.968285"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-11"], ["unit_id", 4], ["created_at", "2018-04-28 06:31:09.971526"], ["updated_at", "2018-04-28 06:31:09.971526"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-12"], ["unit_id", 4], ["created_at", "2018-04-28 06:31:09.974871"], ["updated_at", "2018-04-28 06:31:09.974871"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-14"], ["unit_id", 4], ["created_at", "2018-04-28 06:31:09.977956"], ["updated_at", "2018-04-28 06:31:09.977956"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-15"], ["unit_id", 4], ["created_at", "2018-04-28 06:31:09.981198"], ["updated_at", "2018-04-28 06:31:09.981198"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-17"], ["unit_id", 4], ["created_at", "2018-04-28 06:31:09.984925"], ["updated_at", "2018-04-28 06:31:09.984925"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-18"], ["unit_id", 4], ["created_at", "2018-04-28 06:31:09.988258"], ["updated_at", "2018-04-28 06:31:09.988258"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-19 (GUEST BLOCK)"], ["unit_id", 4], ["created_at", "2018-04-28 06:31:09.991673"], ["updated_at", "2018-04-28 06:31:09.991673"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-19A"], ["unit_id", 4], ["created_at", "2018-04-28 06:31:09.994898"], ["updated_at", "2018-04-28 06:31:09.994898"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-20 (LEARNING CENTER)"], ["unit_id", 4], ["created_at", "2018-04-28 06:31:09.998245"], ["updated_at", "2018-04-28 06:31:09.998245"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-21 (EBC)"], ["unit_id", 4], ["created_at", "2018-04-28 06:31:10.001593"], ["updated_at", "2018-04-28 06:31:10.001593"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-22 (RECEPTION)"], ["unit_id", 4], ["created_at", "2018-04-28 06:31:10.004929"], ["updated_at", "2018-04-28 06:31:10.004929"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-23"], ["unit_id", 4], ["created_at", "2018-04-28 06:31:10.008232"], ["updated_at", "2018-04-28 06:31:10.008232"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "MLCP"], ["unit_id", 4], ["created_at", "2018-04-28 06:31:10.011736"], ["updated_at", "2018-04-28 06:31:10.011736"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "UTILITY BLOCK 1"], ["unit_id", 4], ["created_at", "2018-04-28 06:31:10.014826"], ["updated_at", "2018-04-28 06:31:10.014826"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "UTILITY BLOCK 2"], ["unit_id", 4], ["created_at", "2018-04-28 06:31:10.019369"], ["updated_at", "2018-04-28 06:31:10.019369"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "S1"], ["unit_id", 5], ["created_at", "2018-04-28 06:31:10.022799"], ["updated_at", "2018-04-28 06:31:10.022799"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "S2"], ["unit_id", 5], ["created_at", "2018-04-28 06:31:10.026136"], ["updated_at", "2018-04-28 06:31:10.026136"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT  "floors".* FROM "floors" ORDER BY "floors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddNameToFloor (20180428063214)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "floors" ADD "name" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180428063214"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_cities_on_organisation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_cities_on_organisation_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_floors_on_tower_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_floors_on_tower_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_locations_on_city_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_locations_on_city_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_towers_on_unit_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_towers_on_unit_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_units_on_location_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_units_on_location_id' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (17.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSurveys (20180404035627)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "organisation" text, "city" text, "location" text, "unit" text, "tower" text, "floor" text, "area" decimal, "building_type" text, "component" text, "ipms" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180404035627"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOrganisations (20180421094635)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "organisations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180421094635"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCities (20180421094644)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "cities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "organisation_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_b04df2566c"
+FOREIGN KEY ("organisation_id")
+  REFERENCES "organisations" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_cities_on_organisation_id" ON "cities" ("organisation_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180421094644"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateLocations (20180421095619)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "city_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_6c1a48c78d"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_locations_on_city_id" ON "locations" ("city_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180421095619"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUnits (20180421095829)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "units" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "location_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_35fbcbcced"
+FOREIGN KEY ("location_id")
+  REFERENCES "locations" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_units_on_location_id" ON "units" ("location_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180421095829"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTowers (20180421095909)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "towers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_3e85f1a2b0"
+FOREIGN KEY ("unit_id")
+  REFERENCES "units" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_towers_on_unit_id" ON "towers" ("unit_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180421095909"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFloors (20180421095951)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "floors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tower_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_e455902a1a"
+FOREIGN KEY ("tower_id")
+  REFERENCES "towers" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_floors_on_tower_id" ON "floors" ("tower_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180421095951"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddNameToFloor (20180428063214)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "floors" ADD "name" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180428063214"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-28 06:33:17.309343"], ["updated_at", "2018-04-28 06:33:17.309343"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_cities_on_organisation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_cities_on_organisation_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_floors_on_tower_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_floors_on_tower_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_locations_on_city_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_locations_on_city_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_towers_on_unit_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_towers_on_unit_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_units_on_location_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_units_on_location_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "organisations" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Wipro"], ["created_at", "2018-04-28 06:33:25.939799"], ["updated_at", "2018-04-28 06:33:25.939799"]]
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cities" ("name", "organisation_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Bangalore"], ["organisation_id", 1], ["created_at", "2018-04-28 06:33:25.969734"], ["updated_at", "2018-04-28 06:33:25.969734"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."name" = ? LIMIT ?[0m  [["name", "Bangalore"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "locations" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Wipro Electronic City"], ["city_id", 1], ["created_at", "2018-04-28 06:33:25.987397"], ["updated_at", "2018-04-28 06:33:25.987397"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "units" ("name", "location_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "EC-1"], ["location_id", 1], ["created_at", "2018-04-28 06:33:26.003562"], ["updated_at", "2018-04-28 06:33:26.003562"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "units" ("name", "location_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "EC-2"], ["location_id", 1], ["created_at", "2018-04-28 06:33:26.006843"], ["updated_at", "2018-04-28 06:33:26.006843"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "units" ("name", "location_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "EC-3"], ["location_id", 1], ["created_at", "2018-04-28 06:33:26.010067"], ["updated_at", "2018-04-28 06:33:26.010067"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "units" ("name", "location_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "EC-4"], ["location_id", 1], ["created_at", "2018-04-28 06:33:26.013798"], ["updated_at", "2018-04-28 06:33:26.013798"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "units" ("name", "location_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "EC-5"], ["location_id", 1], ["created_at", "2018-04-28 06:33:26.017024"], ["updated_at", "2018-04-28 06:33:26.017024"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-1"], ["unit_id", 1], ["created_at", "2018-04-28 06:33:26.030856"], ["updated_at", "2018-04-28 06:33:26.030856"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-2"], ["unit_id", 1], ["created_at", "2018-04-28 06:33:26.034256"], ["updated_at", "2018-04-28 06:33:26.034256"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-3"], ["unit_id", 1], ["created_at", "2018-04-28 06:33:26.037597"], ["updated_at", "2018-04-28 06:33:26.037597"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-4"], ["unit_id", 1], ["created_at", "2018-04-28 06:33:26.040508"], ["updated_at", "2018-04-28 06:33:26.040508"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "UTILITY BLOCK"], ["unit_id", 1], ["created_at", "2018-04-28 06:33:26.044104"], ["updated_at", "2018-04-28 06:33:26.044104"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-5"], ["unit_id", 2], ["created_at", "2018-04-28 06:33:26.047756"], ["updated_at", "2018-04-28 06:33:26.047756"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-6"], ["unit_id", 2], ["created_at", "2018-04-28 06:33:26.051102"], ["updated_at", "2018-04-28 06:33:26.051102"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-7"], ["unit_id", 2], ["created_at", "2018-04-28 06:33:26.063936"], ["updated_at", "2018-04-28 06:33:26.063936"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-7A"], ["unit_id", 2], ["created_at", "2018-04-28 06:33:26.067558"], ["updated_at", "2018-04-28 06:33:26.067558"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "LEARNING CENTER"], ["unit_id", 2], ["created_at", "2018-04-28 06:33:26.070774"], ["updated_at", "2018-04-28 06:33:26.070774"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "UTILITY BLOCK"], ["unit_id", 2], ["created_at", "2018-04-28 06:33:26.074258"], ["updated_at", "2018-04-28 06:33:26.074258"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-8"], ["unit_id", 3], ["created_at", "2018-04-28 06:33:26.077942"], ["updated_at", "2018-04-28 06:33:26.077942"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-8A"], ["unit_id", 3], ["created_at", "2018-04-28 06:33:26.081267"], ["updated_at", "2018-04-28 06:33:26.081267"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-8B (GCC)"], ["unit_id", 3], ["created_at", "2018-04-28 06:33:26.084553"], ["updated_at", "2018-04-28 06:33:26.084553"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ACCESS CONTROL"], ["unit_id", 3], ["created_at", "2018-04-28 06:33:26.088755"], ["updated_at", "2018-04-28 06:33:26.088755"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "RECEPTION"], ["unit_id", 3], ["created_at", "2018-04-28 06:33:26.092039"], ["updated_at", "2018-04-28 06:33:26.092039"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-9"], ["unit_id", 4], ["created_at", "2018-04-28 06:33:26.095413"], ["updated_at", "2018-04-28 06:33:26.095413"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-10"], ["unit_id", 4], ["created_at", "2018-04-28 06:33:26.098825"], ["updated_at", "2018-04-28 06:33:26.098825"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-11"], ["unit_id", 4], ["created_at", "2018-04-28 06:33:26.102311"], ["updated_at", "2018-04-28 06:33:26.102311"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-12"], ["unit_id", 4], ["created_at", "2018-04-28 06:33:26.105857"], ["updated_at", "2018-04-28 06:33:26.105857"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-14"], ["unit_id", 4], ["created_at", "2018-04-28 06:33:26.108977"], ["updated_at", "2018-04-28 06:33:26.108977"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-15"], ["unit_id", 4], ["created_at", "2018-04-28 06:33:26.112053"], ["updated_at", "2018-04-28 06:33:26.112053"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-17"], ["unit_id", 4], ["created_at", "2018-04-28 06:33:26.115297"], ["updated_at", "2018-04-28 06:33:26.115297"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-18"], ["unit_id", 4], ["created_at", "2018-04-28 06:33:26.119312"], ["updated_at", "2018-04-28 06:33:26.119312"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-19 (GUEST BLOCK)"], ["unit_id", 4], ["created_at", "2018-04-28 06:33:26.122284"], ["updated_at", "2018-04-28 06:33:26.122284"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-19A"], ["unit_id", 4], ["created_at", "2018-04-28 06:33:26.125609"], ["updated_at", "2018-04-28 06:33:26.125609"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-20 (LEARNING CENTER)"], ["unit_id", 4], ["created_at", "2018-04-28 06:33:26.129593"], ["updated_at", "2018-04-28 06:33:26.129593"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-21 (EBC)"], ["unit_id", 4], ["created_at", "2018-04-28 06:33:26.132940"], ["updated_at", "2018-04-28 06:33:26.132940"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-22 (RECEPTION)"], ["unit_id", 4], ["created_at", "2018-04-28 06:33:26.136262"], ["updated_at", "2018-04-28 06:33:26.136262"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TOWER-23"], ["unit_id", 4], ["created_at", "2018-04-28 06:33:26.140026"], ["updated_at", "2018-04-28 06:33:26.140026"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "MLCP"], ["unit_id", 4], ["created_at", "2018-04-28 06:33:26.143380"], ["updated_at", "2018-04-28 06:33:26.143380"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "UTILITY BLOCK 1"], ["unit_id", 4], ["created_at", "2018-04-28 06:33:26.146997"], ["updated_at", "2018-04-28 06:33:26.146997"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "UTILITY BLOCK 2"], ["unit_id", 4], ["created_at", "2018-04-28 06:33:26.150511"], ["updated_at", "2018-04-28 06:33:26.150511"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "S1"], ["unit_id", 5], ["created_at", "2018-04-28 06:33:26.154007"], ["updated_at", "2018-04-28 06:33:26.154007"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "towers" ("name", "unit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "S2"], ["unit_id", 5], ["created_at", "2018-04-28 06:33:26.157469"], ["updated_at", "2018-04-28 06:33:26.157469"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 1], ["created_at", "2018-04-28 06:33:26.173542"], ["updated_at", "2018-04-28 06:33:26.173542"], ["name", "0F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 1], ["created_at", "2018-04-28 06:33:26.177411"], ["updated_at", "2018-04-28 06:33:26.177411"], ["name", "1F"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 1], ["created_at", "2018-04-28 06:33:26.184302"], ["updated_at", "2018-04-28 06:33:26.184302"], ["name", "2F"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 1], ["created_at", "2018-04-28 06:33:26.187839"], ["updated_at", "2018-04-28 06:33:26.187839"], ["name", "3F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 2], ["created_at", "2018-04-28 06:33:26.191404"], ["updated_at", "2018-04-28 06:33:26.191404"], ["name", "0F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 2], ["created_at", "2018-04-28 06:33:26.195232"], ["updated_at", "2018-04-28 06:33:26.195232"], ["name", "1F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 2], ["created_at", "2018-04-28 06:33:26.198705"], ["updated_at", "2018-04-28 06:33:26.198705"], ["name", "2F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 2], ["created_at", "2018-04-28 06:33:26.201889"], ["updated_at", "2018-04-28 06:33:26.201889"], ["name", "3F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 3], ["created_at", "2018-04-28 06:33:26.205366"], ["updated_at", "2018-04-28 06:33:26.205366"], ["name", "0F"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 3], ["created_at", "2018-04-28 06:33:26.209927"], ["updated_at", "2018-04-28 06:33:26.209927"], ["name", "1F"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 3], ["created_at", "2018-04-28 06:33:26.213514"], ["updated_at", "2018-04-28 06:33:26.213514"], ["name", "2F"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 3], ["created_at", "2018-04-28 06:33:26.217645"], ["updated_at", "2018-04-28 06:33:26.217645"], ["name", "3F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 4], ["created_at", "2018-04-28 06:33:26.221237"], ["updated_at", "2018-04-28 06:33:26.221237"], ["name", "0F"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 4], ["created_at", "2018-04-28 06:33:26.224607"], ["updated_at", "2018-04-28 06:33:26.224607"], ["name", "1F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 4], ["created_at", "2018-04-28 06:33:26.228405"], ["updated_at", "2018-04-28 06:33:26.228405"], ["name", "2F"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 4], ["created_at", "2018-04-28 06:33:26.231789"], ["updated_at", "2018-04-28 06:33:26.231789"], ["name", "3F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 4], ["created_at", "2018-04-28 06:33:26.235204"], ["updated_at", "2018-04-28 06:33:26.235204"], ["name", "4F"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 4], ["created_at", "2018-04-28 06:33:26.238915"], ["updated_at", "2018-04-28 06:33:26.238915"], ["name", "5F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 5], ["created_at", "2018-04-28 06:33:26.242540"], ["updated_at", "2018-04-28 06:33:26.242540"], ["name", "0F"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 5], ["created_at", "2018-04-28 06:33:26.245770"], ["updated_at", "2018-04-28 06:33:26.245770"], ["name", "1F"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 6], ["created_at", "2018-04-28 06:33:26.248792"], ["updated_at", "2018-04-28 06:33:26.248792"], ["name", "0F"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 6], ["created_at", "2018-04-28 06:33:26.252038"], ["updated_at", "2018-04-28 06:33:26.252038"], ["name", "1F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 6], ["created_at", "2018-04-28 06:33:26.255437"], ["updated_at", "2018-04-28 06:33:26.255437"], ["name", "2F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 6], ["created_at", "2018-04-28 06:33:26.259180"], ["updated_at", "2018-04-28 06:33:26.259180"], ["name", "3F"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 7], ["created_at", "2018-04-28 06:33:26.263029"], ["updated_at", "2018-04-28 06:33:26.263029"], ["name", "0F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 7], ["created_at", "2018-04-28 06:33:26.268592"], ["updated_at", "2018-04-28 06:33:26.268592"], ["name", "1F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 7], ["created_at", "2018-04-28 06:33:26.273232"], ["updated_at", "2018-04-28 06:33:26.273232"], ["name", "2F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 7], ["created_at", "2018-04-28 06:33:26.276671"], ["updated_at", "2018-04-28 06:33:26.276671"], ["name", "3F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 8], ["created_at", "2018-04-28 06:33:26.280604"], ["updated_at", "2018-04-28 06:33:26.280604"], ["name", "0F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 8], ["created_at", "2018-04-28 06:33:26.283925"], ["updated_at", "2018-04-28 06:33:26.283925"], ["name", "1F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 8], ["created_at", "2018-04-28 06:33:26.287404"], ["updated_at", "2018-04-28 06:33:26.287404"], ["name", "2F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 8], ["created_at", "2018-04-28 06:33:26.291242"], ["updated_at", "2018-04-28 06:33:26.291242"], ["name", "3F"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 9], ["created_at", "2018-04-28 06:33:26.297838"], ["updated_at", "2018-04-28 06:33:26.297838"], ["name", "0F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 9], ["created_at", "2018-04-28 06:33:26.301316"], ["updated_at", "2018-04-28 06:33:26.301316"], ["name", "1F"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 10], ["created_at", "2018-04-28 06:33:26.304862"], ["updated_at", "2018-04-28 06:33:26.304862"], ["name", "0F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 10], ["created_at", "2018-04-28 06:33:26.308422"], ["updated_at", "2018-04-28 06:33:26.308422"], ["name", "1F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 11], ["created_at", "2018-04-28 06:33:26.312041"], ["updated_at", "2018-04-28 06:33:26.312041"], ["name", "0F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 11], ["created_at", "2018-04-28 06:33:26.315282"], ["updated_at", "2018-04-28 06:33:26.315282"], ["name", "1F"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 12], ["created_at", "2018-04-28 06:33:26.319492"], ["updated_at", "2018-04-28 06:33:26.319492"], ["name", "0F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 12], ["created_at", "2018-04-28 06:33:26.323639"], ["updated_at", "2018-04-28 06:33:26.323639"], ["name", "1F"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 12], ["created_at", "2018-04-28 06:33:26.326827"], ["updated_at", "2018-04-28 06:33:26.326827"], ["name", "2F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 12], ["created_at", "2018-04-28 06:33:26.329938"], ["updated_at", "2018-04-28 06:33:26.329938"], ["name", "3F"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 12], ["created_at", "2018-04-28 06:33:26.333388"], ["updated_at", "2018-04-28 06:33:26.333388"], ["name", "4F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 12], ["created_at", "2018-04-28 06:33:26.336707"], ["updated_at", "2018-04-28 06:33:26.336707"], ["name", "5F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 12], ["created_at", "2018-04-28 06:33:26.339932"], ["updated_at", "2018-04-28 06:33:26.339932"], ["name", "6F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 13], ["created_at", "2018-04-28 06:33:26.343401"], ["updated_at", "2018-04-28 06:33:26.343401"], ["name", "0F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 13], ["created_at", "2018-04-28 06:33:26.346690"], ["updated_at", "2018-04-28 06:33:26.346690"], ["name", "1F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 13], ["created_at", "2018-04-28 06:33:26.349992"], ["updated_at", "2018-04-28 06:33:26.349992"], ["name", "2F"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 14], ["created_at", "2018-04-28 06:33:26.354057"], ["updated_at", "2018-04-28 06:33:26.354057"], ["name", "0F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 15], ["created_at", "2018-04-28 06:33:26.357884"], ["updated_at", "2018-04-28 06:33:26.357884"], ["name", "0F"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 16], ["created_at", "2018-04-28 06:33:26.361160"], ["updated_at", "2018-04-28 06:33:26.361160"], ["name", "0F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 17], ["created_at", "2018-04-28 06:33:26.364629"], ["updated_at", "2018-04-28 06:33:26.364629"], ["name", "0F"]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 17], ["created_at", "2018-04-28 06:33:26.370157"], ["updated_at", "2018-04-28 06:33:26.370157"], ["name", "1F"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 17], ["created_at", "2018-04-28 06:33:26.381359"], ["updated_at", "2018-04-28 06:33:26.381359"], ["name", "2F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 17], ["created_at", "2018-04-28 06:33:26.385116"], ["updated_at", "2018-04-28 06:33:26.385116"], ["name", "3F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 18], ["created_at", "2018-04-28 06:33:26.388929"], ["updated_at", "2018-04-28 06:33:26.388929"], ["name", "0F"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 18], ["created_at", "2018-04-28 06:33:26.393305"], ["updated_at", "2018-04-28 06:33:26.393305"], ["name", "1F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 18], ["created_at", "2018-04-28 06:33:26.396839"], ["updated_at", "2018-04-28 06:33:26.396839"], ["name", "2F"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 18], ["created_at", "2018-04-28 06:33:26.400601"], ["updated_at", "2018-04-28 06:33:26.400601"], ["name", "3F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 19], ["created_at", "2018-04-28 06:33:26.404174"], ["updated_at", "2018-04-28 06:33:26.404174"], ["name", "0F"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 19], ["created_at", "2018-04-28 06:33:26.407652"], ["updated_at", "2018-04-28 06:33:26.407652"], ["name", "1F"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 19], ["created_at", "2018-04-28 06:33:26.411256"], ["updated_at", "2018-04-28 06:33:26.411256"], ["name", "2F"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 19], ["created_at", "2018-04-28 06:33:26.415097"], ["updated_at", "2018-04-28 06:33:26.415097"], ["name", "3F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 20], ["created_at", "2018-04-28 06:33:26.418680"], ["updated_at", "2018-04-28 06:33:26.418680"], ["name", "0F"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 20], ["created_at", "2018-04-28 06:33:26.422942"], ["updated_at", "2018-04-28 06:33:26.422942"], ["name", "1F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 20], ["created_at", "2018-04-28 06:33:26.426292"], ["updated_at", "2018-04-28 06:33:26.426292"], ["name", "2F"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 20], ["created_at", "2018-04-28 06:33:26.429813"], ["updated_at", "2018-04-28 06:33:26.429813"], ["name", "3F"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 21], ["created_at", "2018-04-28 06:33:26.433562"], ["updated_at", "2018-04-28 06:33:26.433562"], ["name", "0F"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 21], ["created_at", "2018-04-28 06:33:26.437126"], ["updated_at", "2018-04-28 06:33:26.437126"], ["name", "1F"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 21], ["created_at", "2018-04-28 06:33:26.440752"], ["updated_at", "2018-04-28 06:33:26.440752"], ["name", "2F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 21], ["created_at", "2018-04-28 06:33:26.444239"], ["updated_at", "2018-04-28 06:33:26.444239"], ["name", "3F"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 22], ["created_at", "2018-04-28 06:33:26.448017"], ["updated_at", "2018-04-28 06:33:26.448017"], ["name", "0F"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 22], ["created_at", "2018-04-28 06:33:26.451660"], ["updated_at", "2018-04-28 06:33:26.451660"], ["name", "1F"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 22], ["created_at", "2018-04-28 06:33:26.455391"], ["updated_at", "2018-04-28 06:33:26.455391"], ["name", "2F"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 22], ["created_at", "2018-04-28 06:33:26.459375"], ["updated_at", "2018-04-28 06:33:26.459375"], ["name", "3F"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 23], ["created_at", "2018-04-28 06:33:26.463313"], ["updated_at", "2018-04-28 06:33:26.463313"], ["name", "0F"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 23], ["created_at", "2018-04-28 06:33:26.466872"], ["updated_at", "2018-04-28 06:33:26.466872"], ["name", "1F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 23], ["created_at", "2018-04-28 06:33:26.470061"], ["updated_at", "2018-04-28 06:33:26.470061"], ["name", "2F"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 24], ["created_at", "2018-04-28 06:33:26.479389"], ["updated_at", "2018-04-28 06:33:26.479389"], ["name", "0F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 24], ["created_at", "2018-04-28 06:33:26.482899"], ["updated_at", "2018-04-28 06:33:26.482899"], ["name", "1F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 24], ["created_at", "2018-04-28 06:33:26.486281"], ["updated_at", "2018-04-28 06:33:26.486281"], ["name", "2F"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 25], ["created_at", "2018-04-28 06:33:26.490397"], ["updated_at", "2018-04-28 06:33:26.490397"], ["name", "0F"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 25], ["created_at", "2018-04-28 06:33:26.495114"], ["updated_at", "2018-04-28 06:33:26.495114"], ["name", "1F"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 25], ["created_at", "2018-04-28 06:33:26.498640"], ["updated_at", "2018-04-28 06:33:26.498640"], ["name", "2F"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 25], ["created_at", "2018-04-28 06:33:26.502684"], ["updated_at", "2018-04-28 06:33:26.502684"], ["name", "3F"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 26], ["created_at", "2018-04-28 06:33:26.506718"], ["updated_at", "2018-04-28 06:33:26.506718"], ["name", "0F"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 26], ["created_at", "2018-04-28 06:33:26.510268"], ["updated_at", "2018-04-28 06:33:26.510268"], ["name", "1F"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 27], ["created_at", "2018-04-28 06:33:26.513942"], ["updated_at", "2018-04-28 06:33:26.513942"], ["name", "0F"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 27], ["created_at", "2018-04-28 06:33:26.518024"], ["updated_at", "2018-04-28 06:33:26.518024"], ["name", "1F"]]
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 27], ["created_at", "2018-04-28 06:33:26.526123"], ["updated_at", "2018-04-28 06:33:26.526123"], ["name", "2F"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 28], ["created_at", "2018-04-28 06:33:26.529951"], ["updated_at", "2018-04-28 06:33:26.529951"], ["name", "0F"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 28], ["created_at", "2018-04-28 06:33:26.533457"], ["updated_at", "2018-04-28 06:33:26.533457"], ["name", "1F"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 29], ["created_at", "2018-04-28 06:33:26.537182"], ["updated_at", "2018-04-28 06:33:26.537182"], ["name", "0F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 30], ["created_at", "2018-04-28 06:33:26.541076"], ["updated_at", "2018-04-28 06:33:26.541076"], ["name", "0F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 30], ["created_at", "2018-04-28 06:33:26.545704"], ["updated_at", "2018-04-28 06:33:26.545704"], ["name", "1F"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 30], ["created_at", "2018-04-28 06:33:26.549930"], ["updated_at", "2018-04-28 06:33:26.549930"], ["name", "2F"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 30], ["created_at", "2018-04-28 06:33:26.553265"], ["updated_at", "2018-04-28 06:33:26.553265"], ["name", "3F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 31], ["created_at", "2018-04-28 06:33:26.556996"], ["updated_at", "2018-04-28 06:33:26.556996"], ["name", "0F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 31], ["created_at", "2018-04-28 06:33:26.560493"], ["updated_at", "2018-04-28 06:33:26.560493"], ["name", "1F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 31], ["created_at", "2018-04-28 06:33:26.564051"], ["updated_at", "2018-04-28 06:33:26.564051"], ["name", "2F"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 31], ["created_at", "2018-04-28 06:33:26.568216"], ["updated_at", "2018-04-28 06:33:26.568216"], ["name", "3F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 31], ["created_at", "2018-04-28 06:33:26.571491"], ["updated_at", "2018-04-28 06:33:26.571491"], ["name", "4F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 32], ["created_at", "2018-04-28 06:33:26.575777"], ["updated_at", "2018-04-28 06:33:26.575777"], ["name", "0F"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 32], ["created_at", "2018-04-28 06:33:26.582362"], ["updated_at", "2018-04-28 06:33:26.582362"], ["name", "1F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 33], ["created_at", "2018-04-28 06:33:26.586103"], ["updated_at", "2018-04-28 06:33:26.586103"], ["name", "0F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 33], ["created_at", "2018-04-28 06:33:26.590470"], ["updated_at", "2018-04-28 06:33:26.590470"], ["name", "1F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 34], ["created_at", "2018-04-28 06:33:26.594177"], ["updated_at", "2018-04-28 06:33:26.594177"], ["name", "0F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 34], ["created_at", "2018-04-28 06:33:26.600733"], ["updated_at", "2018-04-28 06:33:26.600733"], ["name", "1F"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 34], ["created_at", "2018-04-28 06:33:26.604370"], ["updated_at", "2018-04-28 06:33:26.604370"], ["name", "2F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 34], ["created_at", "2018-04-28 06:33:26.608280"], ["updated_at", "2018-04-28 06:33:26.608280"], ["name", "3F"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 34], ["created_at", "2018-04-28 06:33:26.612083"], ["updated_at", "2018-04-28 06:33:26.612083"], ["name", "4F"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 34], ["created_at", "2018-04-28 06:33:26.616274"], ["updated_at", "2018-04-28 06:33:26.616274"], ["name", "5F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 34], ["created_at", "2018-04-28 06:33:26.619601"], ["updated_at", "2018-04-28 06:33:26.619601"], ["name", "6F"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 34], ["created_at", "2018-04-28 06:33:26.623135"], ["updated_at", "2018-04-28 06:33:26.623135"], ["name", "7F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 34], ["created_at", "2018-04-28 06:33:26.626580"], ["updated_at", "2018-04-28 06:33:26.626580"], ["name", "8F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 34], ["created_at", "2018-04-28 06:33:26.630206"], ["updated_at", "2018-04-28 06:33:26.630206"], ["name", "9F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 35], ["created_at", "2018-04-28 06:33:26.633598"], ["updated_at", "2018-04-28 06:33:26.633598"], ["name", "0F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 35], ["created_at", "2018-04-28 06:33:26.636925"], ["updated_at", "2018-04-28 06:33:26.636925"], ["name", "1F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 35], ["created_at", "2018-04-28 06:33:26.640949"], ["updated_at", "2018-04-28 06:33:26.640949"], ["name", "2F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 35], ["created_at", "2018-04-28 06:33:26.644785"], ["updated_at", "2018-04-28 06:33:26.644785"], ["name", "3F"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 35], ["created_at", "2018-04-28 06:33:26.649316"], ["updated_at", "2018-04-28 06:33:26.649316"], ["name", "4F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 35], ["created_at", "2018-04-28 06:33:26.653118"], ["updated_at", "2018-04-28 06:33:26.653118"], ["name", "5F"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 35], ["created_at", "2018-04-28 06:33:26.657595"], ["updated_at", "2018-04-28 06:33:26.657595"], ["name", "6F"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 35], ["created_at", "2018-04-28 06:33:26.661262"], ["updated_at", "2018-04-28 06:33:26.661262"], ["name", "7F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 35], ["created_at", "2018-04-28 06:33:26.664778"], ["updated_at", "2018-04-28 06:33:26.664778"], ["name", "8F"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 35], ["created_at", "2018-04-28 06:33:26.668383"], ["updated_at", "2018-04-28 06:33:26.668383"], ["name", "9F"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 35], ["created_at", "2018-04-28 06:33:26.672754"], ["updated_at", "2018-04-28 06:33:26.672754"], ["name", "10F"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 35], ["created_at", "2018-04-28 06:33:26.677867"], ["updated_at", "2018-04-28 06:33:26.677867"], ["name", "11F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "floors" ("tower_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["tower_id", 35], ["created_at", "2018-04-28 06:33:26.684876"], ["updated_at", "2018-04-28 06:33:26.684876"], ["name", "12F"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFloor Load (2.7ms)[0m  [1m[34mSELECT "floors".* FROM "floors"[0m
+Started GET "/" for 127.0.0.1 at 2018-04-28 12:04:06 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (920.1ms)
+Completed 200 OK in 1588ms (Views: 1577.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2018-04-28 12:04:15 +0530
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 137ms (Views: 72.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/surveys/search" for 127.0.0.1 at 2018-04-28 12:04:17 +0530
+Processing by SurveysController#search as HTML
+  Rendering surveys/search.html.erb within layouts/application
+  [1m[36mOrganisation Load (0.4ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" ORDER BY "organisations"."name" ASC[0m
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."organisation_id" = ?[0m  [["organisation_id", 1]]
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" ORDER BY "cities"."name" ASC[0m
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."city_id" = ?[0m  [["city_id", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC[0m
+  [1m[36mUnit Load (0.2ms)[0m  [1m[34mSELECT "units".* FROM "units" WHERE "units"."location_id" = ?[0m  [["location_id", 1]]
+  [1m[36mUnit Load (1.1ms)[0m  [1m[34mSELECT "units".* FROM "units" ORDER BY "units"."name" ASC[0m
+  [1m[36mTower Load (0.2ms)[0m  [1m[34mSELECT "towers".* FROM "towers" WHERE "towers"."unit_id" = ?[0m  [["unit_id", 1]]
+  [1m[36mTower Load (0.2ms)[0m  [1m[34mSELECT "towers".* FROM "towers" WHERE "towers"."unit_id" = ?[0m  [["unit_id", 2]]
+  [1m[36mTower Load (0.1ms)[0m  [1m[34mSELECT "towers".* FROM "towers" WHERE "towers"."unit_id" = ?[0m  [["unit_id", 3]]
+  [1m[36mTower Load (0.1ms)[0m  [1m[34mSELECT "towers".* FROM "towers" WHERE "towers"."unit_id" = ?[0m  [["unit_id", 4]]
+  [1m[36mTower Load (0.1ms)[0m  [1m[34mSELECT "towers".* FROM "towers" WHERE "towers"."unit_id" = ?[0m  [["unit_id", 5]]
+  [1m[36mTower Load (0.3ms)[0m  [1m[34mSELECT "towers".* FROM "towers" ORDER BY "towers"."name" ASC[0m
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 15]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 10]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 31]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 16]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 34]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 35]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 1]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 18]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 19]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 20]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 21]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 22]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 23]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 24]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 25]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 26]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 2]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 27]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 28]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 29]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 30]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 3]]
+  [1m[36mFloor Load (0.7ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 4]]
+  [1m[36mFloor Load (0.3ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 6]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 7]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 8]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 9]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 12]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 13]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 14]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 17]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 5]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 11]]
+  [1m[36mFloor Load (0.2ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 32]]
+  [1m[36mFloor Load (0.1ms)[0m  [1m[34mSELECT "floors".* FROM "floors" WHERE "floors"."tower_id" = ?[0m  [["tower_id", 33]]
+  Rendered surveys/search.html.erb within layouts/application (397.7ms)
+Completed 200 OK in 456ms (Views: 425.0ms | ActiveRecord: 14.6ms)
+
+
+Started POST "/surveys/searchResults" for 127.0.0.1 at 2018-04-28 12:05:13 +0530
+Processing by SurveysController#searchResults as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9r3XYd9D6AJmq8KWza+8XOhv/ZrdOZjLTvWlSGuT+iXPBZno16Q62np9Kp/RMUfQIen+GyYralsU5JxQO4hfxw==", "organisation"=>"Wipro", "city"=>"Bangalore", "location"=>"Wipro Electronic City", "unit"=>"EC-2", "tower"=>"TOWER-2", "floor"=>"4F", "commit"=>"Search"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "Bangalore"], ["location", "Wipro Electronic City"], ["unit", "EC-2"], ["tower", "TOWER-2"], ["floor", "1"], ["ipms", "1"], ["component", "Comp A"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "Bangalore"], ["location", "Wipro Electronic City"], ["unit", "EC-2"], ["tower", "TOWER-2"], ["floor", "1"], ["ipms", "1"], ["component", "Comp B"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "Bangalore"], ["location", "Wipro Electronic City"], ["unit", "EC-2"], ["tower", "TOWER-2"], ["floor", "1"], ["ipms", "2"], ["component", "Comp A"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "Bangalore"], ["location", "Wipro Electronic City"], ["unit", "EC-2"], ["tower", "TOWER-2"], ["floor", "1"], ["ipms", "2"], ["component", "Comp B"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "Bangalore"], ["location", "Wipro Electronic City"], ["unit", "EC-2"], ["tower", "TOWER-2"], ["floor", "1"], ["ipms", "3"], ["component", "Comp A"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "surveys"."area" FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? AND "surveys"."ipms" = ? AND "surveys"."component" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "Bangalore"], ["location", "Wipro Electronic City"], ["unit", "EC-2"], ["tower", "TOWER-2"], ["floor", "1"], ["ipms", "3"], ["component", "Comp B"]]
+  Rendering surveys/searchResults.html.erb within layouts/application
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys" WHERE "surveys"."organisation" = ? AND "surveys"."city" = ? AND "surveys"."location" = ? AND "surveys"."unit" = ? AND "surveys"."tower" = ? AND "surveys"."floor" = ? ORDER BY "surveys"."ipms" DESC[0m  [["organisation", "Wipro"], ["city", "Bangalore"], ["location", "Wipro Electronic City"], ["unit", "EC-2"], ["tower", "TOWER-2"], ["floor", "1"]]
+  Rendered surveys/searchResults.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 78ms (Views: 47.0ms | ActiveRecord: 2.2ms)
+
+
