@@ -59,7 +59,13 @@ class SurveysController < ApplicationController
 
       @ipms_2_comp_a = @surveys.where(ipms: 2, component: "Comp A").pluck(:area).first.to_f
       @ipms_2_comp_b = @surveys.where(ipms: 2, component: "Comp B").pluck(:area).first.to_f
-      @ipms_2_total_area = @ipms_2_comp_a + @ipms_2_comp_b
+      @ipms_2_comp_c = @surveys.where(ipms: 2, component: "Comp C").pluck(:area).first.to_f
+      @ipms_2_comp_d = @surveys.where(ipms: 2, component: "Comp D").pluck(:area).first.to_f
+      @ipms_2_comp_e = @surveys.where(ipms: 2, component: "Comp E").pluck(:area).first.to_f
+      @ipms_2_comp_f = @surveys.where(ipms: 2, component: "Comp F").pluck(:area).first.to_f
+      @ipms_2_comp_g = @surveys.where(ipms: 2, component: "Comp G").pluck(:area).first.to_f
+      @ipms_2_comp_h = @surveys.where(ipms: 2, component: "Comp H").pluck(:area).first.to_f
+      @ipms_2_total_area = @ipms_2_comp_a + @ipms_2_comp_b + @ipms_2_comp_c + @ipms_2_comp_d + @ipms_2_comp_e + @ipms_2_comp_f + @ipms_2_comp_g + @ipms_2_comp_h
 
       @ipms_3_comp_a = @surveys.where(ipms: 3, component: "Comp A").pluck(:area).first.to_f
       @ipms_3_comp_b = @surveys.where(ipms: 3, component: "Comp B").pluck(:area).first.to_f
