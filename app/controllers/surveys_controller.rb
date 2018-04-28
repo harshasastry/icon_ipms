@@ -44,7 +44,7 @@ class SurveysController < ApplicationController
       @surveys = Survey.where(organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(component: :desc)
       if floor and tower and unit and location and city
         # @queryString = floor + ", " + tower + ", " + unit + ", " + location +", " + city
-        @queryString = tower + ", " + unit + ", " + location + ", " + city 
+        @queryString = tower + ", " + unit + ", " + location + ", " + city
       end
 
       @organisation = organisation
@@ -53,37 +53,117 @@ class SurveysController < ApplicationController
       @IPMS2 = "IPMS2.png"
       @IPMS3 = "IPMS3.png"
 
-      # binding.pry
-      # do the calculation part
-      @floors_ipms_1_comp_a = @surveys.where(ipms: 1, component: "Comp A", organisation: organisation, city: city, location: location, unit: unit, tower: tower)
-      # init an array
-      @floors_n_area_ipms_1 = []
+      # IPMS1
+      #@ipms_1_floors = Floor.where(tower_id: Tower.where(name: tower).pluck(:id)).count()
+      #@queryString = @ipms_1_floors
+
+      @ipms_1_comp_a_total_area = 0
+
+      @floors_ipms_1_comp_a = @surveys.where(ipms: 1, component: "Comp A", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
+      @floors_n_area_ipms_1_comp_a = []
       @floors_ipms_1_comp_a.each do |r|
-        @floors_n_area_ipms_1.push(floor: r[:floor], area: r[:area])
+        @floors_n_area_ipms_1_comp_a.push(floor: r[:floor], area: r[:area])
+        @ipms_1_comp_a_total_area = @ipms_1_comp_a_total_area + r[:area]
       end
 
+      @ipms_1_comp_b_total_area = 0
 
+      @floors_ipms_1_comp_b = @surveys.where(ipms: 1, component: "Comp B", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
+      @floors_n_area_ipms_1_comp_b = []
+      @floors_ipms_1_comp_b.each do |r|
+        @floors_n_area_ipms_1_comp_b.push(floor: r[:floor], area: r[:area])
+        @ipms_1_comp_b_total_area = @ipms_1_comp_b_total_area + r[:area]
+      end
 
+      # IPMS2
+      @ipms_2_comp_a_total_area = 0
 
+      @floors_ipms_2_comp_a = @surveys.where(ipms: 2, component: "Comp A", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
+      @floors_n_area_ipms_2_comp_a = []
+      @floors_ipms_2_comp_a.each do |r|
+        @floors_n_area_ipms_2_comp_a.push(floor: r[:floor], area: r[:area])
+        @ipms_2_comp_a_total_area = @ipms_2_comp_a_total_area + r[:area]
+      end
 
-      @ipms_1_comp_b = @surveys.where(ipms: 1, component: "Comp B", organisation: organisation, city: city, location: location, unit: unit, tower: tower).pluck(:area).first.to_f
-      @ipms_1_total_area = 100
-      
- 
-      @ipms_2_comp_a = @surveys.where(ipms: 2, component: "Comp A").pluck(:area).first.to_f
-      @ipms_2_comp_b = @surveys.where(ipms: 2, component: "Comp B").pluck(:area).first.to_f
-      @ipms_2_comp_c = @surveys.where(ipms: 2, component: "Comp C").pluck(:area).first.to_f
-      @ipms_2_comp_d = @surveys.where(ipms: 2, component: "Comp D").pluck(:area).first.to_f
-      @ipms_2_comp_e = @surveys.where(ipms: 2, component: "Comp E").pluck(:area).first.to_f
-      @ipms_2_comp_f = @surveys.where(ipms: 2, component: "Comp F").pluck(:area).first.to_f
-      @ipms_2_comp_g = @surveys.where(ipms: 2, component: "Comp G").pluck(:area).first.to_f
-      @ipms_2_comp_h = @surveys.where(ipms: 2, component: "Comp H").pluck(:area).first.to_f
-      @ipms_2_total_area = @ipms_2_comp_a + @ipms_2_comp_b + @ipms_2_comp_c + @ipms_2_comp_d + @ipms_2_comp_e + @ipms_2_comp_f + @ipms_2_comp_g + @ipms_2_comp_h
+      @ipms_2_comp_b_total_area = 0
 
-      @ipms_3_comp_a = @surveys.where(ipms: 3, component: "Comp A").pluck(:area).first.to_f
-      @ipms_3_comp_b = @surveys.where(ipms: 3, component: "Comp B").pluck(:area).first.to_f
-      @ipms_3_total_area = @ipms_3_comp_a + @ipms_3_comp_b
+      @floors_ipms_2_comp_b = @surveys.where(ipms: 2, component: "Comp B", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
+      @floors_n_area_ipms_2_comp_b = []
+      @floors_ipms_2_comp_b.each do |r|
+        @floors_n_area_ipms_2_comp_b.push(floor: r[:floor], area: r[:area])
+        @ipms_2_comp_b_total_area = @ipms_2_comp_b_total_area + r[:area]
+      end
 
+      @ipms_2_comp_c_total_area = 0
+      @floors_ipms_2_comp_c = @surveys.where(ipms: 2, component: "Comp C", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
+      @floors_n_area_ipms_2_comp_c = []
+      @floors_ipms_2_comp_c.each do |r|
+        @floors_n_area_ipms_2_comp_c.push(floor: r[:floor], area: r[:area])
+        @ipms_2_comp_c_total_area = @ipms_2_comp_c_total_area + r[:area]
+      end
+
+      @ipms_2_comp_d_total_area = 0
+
+      @floors_ipms_2_comp_d = @surveys.where(ipms: 2, component: "Comp D", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
+      @floors_n_area_ipms_2_comp_d = []
+      @floors_ipms_2_comp_d.each do |r|
+        @floors_n_area_ipms_2_comp_d.push(floor: r[:floor], area: r[:area])
+        @ipms_2_comp_d_total_area = @ipms_2_comp_d_total_area + r[:area]
+      end
+
+      @ipms_2_comp_e_total_area = 0
+      @floors_ipms_2_comp_e = @surveys.where(ipms: 2, component: "Comp E", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
+      @floors_n_area_ipms_2_comp_e = []
+      @floors_ipms_2_comp_e.each do |r|
+        @floors_n_area_ipms_2_comp_e.push(floor: r[:floor], area: r[:area])
+        @ipms_2_comp_e_total_area = @ipms_2_comp_e_total_area + r[:area]
+      end
+
+      @ipms_2_comp_f_total_area = 0
+
+      @floors_ipms_2_comp_f = @surveys.where(ipms: 2, component: "Comp F", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
+      @floors_n_area_ipms_2_comp_f = []
+      @floors_ipms_2_comp_f.each do |r|
+        @floors_n_area_ipms_2_comp_f.push(floor: r[:floor], area: r[:area])
+        @ipms_2_comp_f_total_area = @ipms_2_comp_f_total_area + r[:area]
+      end
+
+      @ipms_2_comp_g_total_area = 0
+      @floors_ipms_2_comp_g = @surveys.where(ipms: 2, component: "Comp G", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
+      @floors_n_area_ipms_2_comp_g = []
+      @floors_ipms_2_comp_g.each do |r|
+        @floors_n_area_ipms_2_comp_g.push(floor: r[:floor], area: r[:area])
+        @ipms_2_comp_g_total_area = @ipms_2_comp_g_total_area + r[:area]
+      end
+
+      @ipms_2_comp_h_total_area = 0
+
+      @floors_ipms_2_comp_h = @surveys.where(ipms: 2, component: "Comp H", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
+      @floors_n_area_ipms_2_comp_h = []
+      @floors_ipms_2_comp_h.each do |r|
+        @floors_n_area_ipms_2_comp_h.push(floor: r[:floor], area: r[:area])
+        @ipms_2_comp_h_total_area = @ipms_2_comp_h_total_area + r[:area]
+      end
+
+      # IPMS3
+
+      @ipms_3_comp_a_total_area = 0
+
+      @floors_ipms_3_comp_a = @surveys.where(ipms: 3, component: "Comp A", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
+      @floors_n_area_ipms_3_comp_a = []
+      @floors_ipms_3_comp_a.each do |r|
+        @floors_n_area_ipms_3_comp_a.push(floor: r[:floor], area: r[:area])
+        @ipms_3_comp_a_total_area = @ipms_3_comp_a_total_area + r[:area]
+      end
+
+      @ipms_3_comp_b_total_area = 0
+
+      @floors_ipms_3_comp_b = @surveys.where(ipms: 3, component: "Comp B", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
+      @floors_n_area_ipms_3_comp_b = []
+      @floors_ipms_3_comp_b.each do |r|
+        @floors_n_area_ipms_3_comp_b.push(floor: r[:floor], area: r[:area])
+        @ipms_3_comp_b_total_area = @ipms_3_comp_b_total_area + r[:area]
+      end
     else
       render 'search'
     end

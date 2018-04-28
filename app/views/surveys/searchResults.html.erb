@@ -9,60 +9,240 @@
 <hr/>
 <br/>
 
-<h3>
-  Results for Tower <%= @queryString %>
-</h3>
+<h2>
+  Results for (<%= @queryString %>)
+</h2>
 
-
+<div><h3> IPMS-1 Details </h3></div>
 <div class="container">
-	<div class="table">
-		<div class="table-header">
-			<div class="header__item"><a id="floor" class="filter__link" href="#">Floor</a></div>
-      <% @floors_n_area_ipms_1.each do |r| %>
-        <div class="header__item"><a id="floor" class="filter__link" href="#"> <%= r[:floor] %> </a></div>  
+  <div class="table">
+    <div class="table-header">
+			<div class="header__item"><a id="floor" class="filter__link" href="#"><b>Floor</b></a></div>
+      <% @floors_n_area_ipms_1_comp_a.each do |r| %>
+        <div class="header__item"><a id="floor" class="filter__link" href="#"> <b><%= r[:floor] %> </b></a></div>
       <% end %>
-
-      <div class="header__item"><a id="TotalArea" class="filter__link" href="#">Total Area</a></div>
+      <div class="header__item"><a id="TotalArea" class="filter__link" href="#"><b>Total Area</b></a></div>
     </div>
-		<div class="table-content">
-      <div class="table-row">
-        <% @floors_n_area_ipms_1.each do |r| %>
-          <div class="table-data"><%= r[:area] %></div>
-        <% end %>
-        <div class="table-data"><%= @ipms_1_total_area %></div>
-			</div>
-      <div class="table-row">
-        <div class="table-data">IPMS 2</div>
-        <div class="table-data"><%= @ipms_2_comp_a %></div>
-        <div class="table-data"><%= @ipms_2_comp_b %></div>
-        <div class="table-data"><%= @ipms_2_total_area %></div>
-      </div>
-      <div class="table-row">
-        <div class="table-data">IPMS 3</div>
-        <div class="table-data"><%= @ipms_3_comp_a %></div>
-        <div class="table-data"><%= @ipms_3_comp_b %></div>
-        <div class="table-data"><%= @ipms_3_total_area %></div>
+    <div class="table-content">
+      <% if @floors_n_area_ipms_1_comp_a.count > 0 %>
+        <div class="table-row">
+          <div class="table-data filter__link" style="background:#800080"><b>COMPONENT AREA A - VERTICAL PENETRATIONS, STRUCTURAL ELEMENTS, TECHNICAL SERVICES, CIRCULATION AREAS, AMENITIES AND WORK SPACE</b></div>
+        </div>
+        <div class="table-row">
+          <div class="table-data"><b>EXAMPLE - WORK SPACE, STRUCTURAL WALLS, COLUMNS, LIFT/ELVATORS</b></div>
+          <% @floors_n_area_ipms_1_comp_a.each do |r| %>
+            <div class="table-data"><%= r[:area] %></div>
+          <% end %>
+          <div class="table-data"><%= @ipms_1_comp_a_total_area %></div>
+        </div>
+      <% end %>
+      <% if @floors_n_area_ipms_1_comp_b.count > 0 %>
+        <div class="table-row">
+          <div class="table-data filter__link" style="background:#FF8C00"><b>COMPONENT AREA B - OTHER AREAS</b></div>
+        </div>
+        <div class="table-row">
+          <div class="table-data"><b>EXAMPLE - BALCONIES, COVERD GALLERY AND OTHERS</b></div>
+          <% @floors_n_area_ipms_1_comp_b.each do |r| %>
+            <div class="table-data"><%= r[:area] %></div>
+          <% end %>
+          <div class="table-data"><%= @ipms_1_comp_b_total_area %></div>
+        </div>
+      <% end %>
+      <div class="table-header">
+  			<div class="header__item"><a id="floor" class="filter__link" href="#"></a> </div>
       </div>
 
-    
     </div>
 	</div>
 </div>
 
-
-
-<hr/>
-
-
+<br/>
 <% if @IPMS1 %>
   <%= image_tag(@IPMS1, size: "300", :style => "border: 1px solid grey") %>
 <% end %>
+
+<hr/>
+
+<div><h3> IPMS-2 Details </h3></div>
+<div class="container">
+  <div class="table">
+    <div class="table-header">
+			<div class="header__item"><a id="floor" class="filter__link" href="#"><b>Floor</b></a></div>
+      <% @floors_n_area_ipms_2_comp_c.each do |r| %>
+        <div class="header__item"><a id="floor" class="filter__link" href="#"> <b><%= r[:floor] %> </b></a></div>
+      <% end %>
+      <div class="header__item"><a id="TotalArea" class="filter__link" href="#"><b>Total Area</b></a></div>
+    </div>
+    <div class="table-content">
+      <% if @floors_n_area_ipms_2_comp_a.count > 0 %>
+        <div class="table-row">
+          <div class="table-data filter__link" style="background:#FFC0CB"><b>COMPONENT AREA A - VERTICAL PENETRATIONS</b></div>
+        </div>
+        <div class="table-row">
+          <div class="table-data"><b>EXAMPLE - STAIRS, LIFT/ELEVATOR SHAFTS AND DUCTS</b></div>
+          <% @floors_n_area_ipms_2_comp_a.each do |r| %>
+            <div class="table-data"><%= r[:area] %></div>
+          <% end %>
+          <div class="table-data"><%= @ipms_2_comp_a_total_area %></div>
+        </div>
+      <% end %>
+
+      <% if @floors_n_area_ipms_2_comp_b.count > 0 %>
+        <div class="table-row">
+          <div class="table-data filter__link" style="background:#FF0000"><b>COMPONENT AREA B - STRUCTURAL ELEMENTS</b></div>
+        </div>
+        <div class="table-row">
+          <div class="table-data"><b>EXAMPLE - STRUCTURAL WALLS, COLUMNS</b></div>
+          <% @floors_n_area_ipms_2_comp_b.each do |r| %>
+            <div class="table-data"><%= r[:area] %></div>
+          <% end %>
+          <div class="table-data"><%= @ipms_2_comp_b_total_area %></div>
+        </div>
+      <% end %>
+
+      <% if @floors_n_area_ipms_2_comp_c.count > 0 %>
+        <div class="table-row">
+          <div class="table-data filter__link" style="background:#008000"><b>COMPONENT AREA C - TECHNICAL SERVICES</b></div>
+        </div>
+        <div class="table-row">
+          <div class="table-data"><b>EXAMPLE - PLANT ROOMS, LIFT/ELEVATOR MOTOR ROOM AND MAINTENANCE ROOMS</b></div>
+          <% @floors_n_area_ipms_2_comp_c.each do |r| %>
+            <div class="table-data"><%= r[:area] %></div>
+          <% end %>
+          <div class="table-data"><%= @ipms_2_comp_c_total_area %></div>
+        </div>
+      <% end %>
+
+      <% if @floors_n_area_ipms_2_comp_d.count > 0 %>
+        <div class="table-row">
+          <div class="table-data filter__link" style="background:#800000"><b>COMPONENT AREA D - HYGLENE AREAS</b></div>
+        </div>
+        <div class="table-row">
+          <div class="table-data"><b>EXAMPLE - TOILET FACILITIES, CLEANERS CUPBOARDS, SHOWER ROOM AND CHANGING ROOMS</b></div>
+          <% @floors_n_area_ipms_2_comp_d.each do |r| %>
+            <div class="table-data"><%= r[:area] %></div>
+          <% end %>
+          <div class="table-data"><%= @ipms_2_comp_d_total_area %></div>
+        </div>
+      <% end %>
+
+      <% if @floors_n_area_ipms_2_comp_e.count > 0 %>
+        <div class="table-row">
+          <div class="table-data filter__link" style="background:#FFFF00"><b>COMPONENT AREA E - CIRCULATION AREAS</b></div>
+        </div>
+        <div class="table-row">
+          <div class="table-data"><b>EXAMPLES - ALL  HORIZONTAL CIRCULATION AREAS</b></div>
+          <% @floors_n_area_ipms_2_comp_e.each do |r| %>
+            <div class="table-data"><%= r[:area] %></div>
+          <% end %>
+          <div class="table-data"><%= @ipms_2_comp_e_total_area %></div>
+        </div>
+      <% end %>
+
+      <% if @floors_n_area_ipms_2_comp_f.count > 0 %>
+        <div class="table-row">
+          <div class="table-data filter__link" style="background:#808080"><b>COMPONENT AREA F - AMENITIES</b></div>
+        </div>
+        <div class="table-row">
+          <div class="table-data"><b>EXAMPLE - CAFETERIAS, DAY-CARE FACILITIES, FITNESS AREAS AND PRAYER ROOMS</b></div>
+          <% @floors_n_area_ipms_2_comp_f.each do |r| %>
+            <div class="table-data"><%= r[:area] %></div>
+          <% end %>
+          <div class="table-data"><%= @ipms_2_comp_f_total_area %></div>
+        </div>
+      <% end %>
+
+      <% if @floors_n_area_ipms_2_comp_g.count > 0 %>
+        <div class="table-row">
+          <div class="table-data filter__link" style="background:#ADD8E6"><b>COMPONENT AREA G - WORKSPACE</b></div>
+        </div>
+        <div class="table-row">
+          <div class="table-data"><b>WORKSPACE</b></div>
+          <% @floors_n_area_ipms_2_comp_g.each do |r| %>
+            <div class="table-data"><%= r[:area] %></div>
+          <% end %>
+          <div class="table-data"><%= @ipms_2_comp_g_total_area %></div>
+        </div>
+      <% end %>
+
+      <% if @floors_n_area_ipms_2_comp_h.count > 0 %>
+        <div class="table-row">
+          <div class="table-data filter__link" style="background:#356D9C"><b>COMPONENT AREA H - OTHER AREAS</b></div>
+        </div>
+        <div class="table-row">
+          <div class="table-data"><b>EXAMPLES  -  BALCONIES, COVERED GALLERIES, INTERNAL CAR PARKING AND STORAGE ROOMS</b></div>
+          <% @floors_n_area_ipms_2_comp_h.each do |r| %>
+            <div class="table-data"><%= r[:area] %></div>
+          <% end %>
+          <div class="table-data"><%= @ipms_2_comp_h_total_area %></div>
+        </div>
+      <% end %>
+
+      <div class="table-header">
+        <div class="header__item"><a id="floor" class="filter__link" href="#"></a> </div>
+      </div>
+
+    </div>
+	</div>
+</div>
+<br/>
+
 <% if @IPMS2 %>
   <%= image_tag(@IPMS2, size: "300", :style => "border: 1px solid grey") %>
 <% end %>
+<hr/>
+
+<div><h3> IPMS-3 Details </h3></div>
+<div class="container">
+  <div class="table">
+    <div class="table-header">
+			<div class="header__item"><a id="floor" class="filter__link" href="#"><b>Floor</b></a></div>
+      <% @floors_n_area_ipms_3_comp_a.each do |r| %>
+        <div class="header__item"><a id="floor" class="filter__link" href="#"> <b><%= r[:floor] %> </b></a></div>
+      <% end %>
+      <div class="header__item"><a id="TotalArea" class="filter__link" href="#"><b>Total Area</b></a></div>
+    </div>
+    <div class="table-content">
+      <% if @floors_n_area_ipms_3_comp_a.count > 0 %>
+        <div class="table-row">
+          <div class="table-data filter__link" style="background:#800080"><b>COMPONENT AREA A - STRUCTURAL ELEMENTS, AMENITIES, CIRCULATION AREAS AND WORK SPACE</b></div>
+        </div>
+        <div class="table-row">
+          <div class="table-data"><b>EXAMPLE - STRUCTURAL WALLS, COLUMN, CAFETETRIAS, DAY-CARE FACILITIES, FITNESS AREAS AND PRAYER ROOMS, WORK SPACE STORE ROOMS</b></div>
+          <% @floors_n_area_ipms_3_comp_a.each do |r| %>
+            <div class="table-data"><%= r[:area] %></div>
+          <% end %>
+          <div class="table-data"><%= @ipms_3_comp_a_total_area %></div>
+        </div>
+      <% end %>
+
+      <% if @floors_n_area_ipms_3_comp_b.count > 0 %>
+        <div class="table-row">
+          <div class="table-data filter__link" style="background:#FF8C00"><b>COMPONENT AREA B - OTHER AREAS</b></div>
+        </div>
+        <div class="table-row">
+          <div class="table-data"><b>EXAMPLES - BALCONIES, COVERD GALLERIES, INTERNAL CAR PARKINFG AND STORAGE ROOMS</b></div>
+            <% @floors_n_area_ipms_3_comp_b.each do |r| %>
+              <div class="table-data"><%= r[:area] %></div>
+            <% end %>
+          <div class="table-data"><%= @ipms_3_comp_b_total_area %></div>
+        </div>
+      <% end %>
+
+      <div class="table-header">
+        <div class="header__item"><a id="floor" class="filter__link" href="#"></a> </div>
+      </div>
+
+    </div>
+	</div>
+</div>
+
 <% if @IPMS3 %>
   <%= image_tag(@IPMS3, size: "300", :style => "border: 1px solid grey") %>
 <% end %>
+
+<hr/>
+
 </center>
 
 <%= link_to 'Back', surveys_path %>
