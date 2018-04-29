@@ -54,115 +54,206 @@ class SurveysController < ApplicationController
       @IPMS3 = "IPMS3.png"
 
       # IPMS1
-      #@ipms_1_floors = Floor.where(tower_id: Tower.where(name: tower).pluck(:id)).count()
-      #@queryString = @ipms_1_floors
+      @ipms_1_floors = 0
+      @ipms_1_floors = Floor.where(tower_id: Tower.where(name: tower).pluck(:id)).order(name: :asc).pluck(:name)
 
       @ipms_1_comp_a_total_area = 0
 
       @floors_ipms_1_comp_a = @surveys.where(ipms: 1, component: "Comp A", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
       @floors_n_area_ipms_1_comp_a = []
-      @floors_ipms_1_comp_a.each do |r|
-        @floors_n_area_ipms_1_comp_a.push(floor: r[:floor], area: r[:area])
-        @ipms_1_comp_a_total_area = @ipms_1_comp_a_total_area + r[:area]
+      @ipms_1_floors.each do |r|
+        @floor_entry = @floors_ipms_1_comp_a.where(floor: r)
+        if (@floor_entry.count > 0)
+          @floor_entry.each do |fl|
+            @floors_n_area_ipms_1_comp_a.push(floor: r, area: fl[:area])
+            @ipms_1_comp_a_total_area = @ipms_1_comp_a_total_area + fl[:area]
+          end
+        else
+          @floors_n_area_ipms_1_comp_a.push(floor: r, area: 0)
+        end
       end
 
       @ipms_1_comp_b_total_area = 0
 
       @floors_ipms_1_comp_b = @surveys.where(ipms: 1, component: "Comp B", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
       @floors_n_area_ipms_1_comp_b = []
-      @floors_ipms_1_comp_b.each do |r|
-        @floors_n_area_ipms_1_comp_b.push(floor: r[:floor], area: r[:area])
-        @ipms_1_comp_b_total_area = @ipms_1_comp_b_total_area + r[:area]
+      @ipms_1_floors.each do |r|
+        @floor_entry = @floors_ipms_1_comp_b.where(floor: r)
+        if (@floor_entry.count > 0)
+          @floor_entry.each do |fl|
+            @floors_n_area_ipms_1_comp_b.push(floor: r, area: fl[:area])
+            @ipms_1_comp_b_total_area = @ipms_1_comp_b_total_area + fl[:area]
+          end
+        else
+          @floors_n_area_ipms_1_comp_b.push(floor: r, area: 0)
+        end
       end
 
       # IPMS2
+      @ipms_2_floors = 0
+      @ipms_2_floors = Floor.where(tower_id: Tower.where(name: tower).pluck(:id)).order(name: :asc).pluck(:name)
+
       @ipms_2_comp_a_total_area = 0
 
       @floors_ipms_2_comp_a = @surveys.where(ipms: 2, component: "Comp A", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
       @floors_n_area_ipms_2_comp_a = []
-      @floors_ipms_2_comp_a.each do |r|
-        @floors_n_area_ipms_2_comp_a.push(floor: r[:floor], area: r[:area])
-        @ipms_2_comp_a_total_area = @ipms_2_comp_a_total_area + r[:area]
+      @ipms_2_floors.each do |r|
+        @floor_entry = @floors_ipms_2_comp_a.where(floor: r)
+        if (@floor_entry.count > 0)
+          @floor_entry.each do |fl|
+            @floors_n_area_ipms_2_comp_a.push(floor: r, area: fl[:area])
+            @ipms_2_comp_a_total_area = @ipms_2_comp_a_total_area + fl[:area]
+          end
+        else
+          @floors_n_area_ipms_2_comp_a.push(floor: r, area: 0)
+        end
       end
 
       @ipms_2_comp_b_total_area = 0
 
       @floors_ipms_2_comp_b = @surveys.where(ipms: 2, component: "Comp B", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
       @floors_n_area_ipms_2_comp_b = []
-      @floors_ipms_2_comp_b.each do |r|
-        @floors_n_area_ipms_2_comp_b.push(floor: r[:floor], area: r[:area])
-        @ipms_2_comp_b_total_area = @ipms_2_comp_b_total_area + r[:area]
+      @ipms_2_floors.each do |r|
+        @floor_entry = @floors_ipms_2_comp_b.where(floor: r)
+        if (@floor_entry.count > 0)
+          @floor_entry.each do |fl|
+            @floors_n_area_ipms_2_comp_b.push(floor: r, area: fl[:area])
+            @ipms_2_comp_b_total_area = @ipms_2_comp_b_total_area + fl[:area]
+          end
+        else
+          @floors_n_area_ipms_2_comp_b.push(floor: r, area: 0)
+        end
       end
 
       @ipms_2_comp_c_total_area = 0
       @floors_ipms_2_comp_c = @surveys.where(ipms: 2, component: "Comp C", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
       @floors_n_area_ipms_2_comp_c = []
-      @floors_ipms_2_comp_c.each do |r|
-        @floors_n_area_ipms_2_comp_c.push(floor: r[:floor], area: r[:area])
-        @ipms_2_comp_c_total_area = @ipms_2_comp_c_total_area + r[:area]
+      @ipms_2_floors.each do |r|
+        @floor_entry = @floors_ipms_2_comp_c.where(floor: r)
+        if (@floor_entry.count > 0)
+          @floor_entry.each do |fl|
+            @floors_n_area_ipms_2_comp_c.push(floor: r, area: fl[:area])
+            @ipms_2_comp_c_total_area = @ipms_2_comp_c_total_area + fl[:area]
+          end
+        else
+          @floors_n_area_ipms_2_comp_c.push(floor: r, area: 0)
+        end
       end
 
       @ipms_2_comp_d_total_area = 0
 
       @floors_ipms_2_comp_d = @surveys.where(ipms: 2, component: "Comp D", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
       @floors_n_area_ipms_2_comp_d = []
-      @floors_ipms_2_comp_d.each do |r|
-        @floors_n_area_ipms_2_comp_d.push(floor: r[:floor], area: r[:area])
-        @ipms_2_comp_d_total_area = @ipms_2_comp_d_total_area + r[:area]
+      @ipms_2_floors.each do |r|
+        @floor_entry = @floors_ipms_2_comp_d.where(floor: r)
+        if (@floor_entry.count > 0)
+          @floor_entry.each do |fl|
+            @floors_n_area_ipms_2_comp_d.push(floor: r, area: fl[:area])
+            @ipms_2_comp_d_total_area = @ipms_2_comp_d_total_area + fl[:area]
+          end
+        else
+          @floors_n_area_ipms_2_comp_d.push(floor: r, area: 0)
+        end
       end
 
       @ipms_2_comp_e_total_area = 0
       @floors_ipms_2_comp_e = @surveys.where(ipms: 2, component: "Comp E", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
       @floors_n_area_ipms_2_comp_e = []
-      @floors_ipms_2_comp_e.each do |r|
-        @floors_n_area_ipms_2_comp_e.push(floor: r[:floor], area: r[:area])
-        @ipms_2_comp_e_total_area = @ipms_2_comp_e_total_area + r[:area]
+      @ipms_2_floors.each do |r|
+        @floor_entry = @floors_ipms_2_comp_e.where(floor: r)
+        if (@floor_entry.count > 0)
+          @floor_entry.each do |fl|
+            @floors_n_area_ipms_2_comp_e.push(floor: r, area: fl[:area])
+            @ipms_2_comp_e_total_area = @ipms_2_comp_e_total_area + fl[:area]
+          end
+        else
+          @floors_n_area_ipms_2_comp_e.push(floor: r, area: 0)
+        end
       end
+
 
       @ipms_2_comp_f_total_area = 0
 
       @floors_ipms_2_comp_f = @surveys.where(ipms: 2, component: "Comp F", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
       @floors_n_area_ipms_2_comp_f = []
-      @floors_ipms_2_comp_f.each do |r|
-        @floors_n_area_ipms_2_comp_f.push(floor: r[:floor], area: r[:area])
-        @ipms_2_comp_f_total_area = @ipms_2_comp_f_total_area + r[:area]
+      @ipms_2_floors.each do |r|
+        @floor_entry = @floors_ipms_2_comp_f.where(floor: r)
+        if (@floor_entry.count > 0)
+          @floor_entry.each do |fl|
+            @floors_n_area_ipms_2_comp_f.push(floor: r, area: fl[:area])
+            @ipms_2_comp_f_total_area = @ipms_2_comp_f_total_area + fl[:area]
+          end
+        else
+          @floors_n_area_ipms_2_comp_f.push(floor: r, area: 0)
+        end
       end
+
 
       @ipms_2_comp_g_total_area = 0
       @floors_ipms_2_comp_g = @surveys.where(ipms: 2, component: "Comp G", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
       @floors_n_area_ipms_2_comp_g = []
-      @floors_ipms_2_comp_g.each do |r|
-        @floors_n_area_ipms_2_comp_g.push(floor: r[:floor], area: r[:area])
-        @ipms_2_comp_g_total_area = @ipms_2_comp_g_total_area + r[:area]
+      @ipms_2_floors.each do |r|
+        @floor_entry = @floors_ipms_2_comp_g.where(floor: r)
+        if (@floor_entry.count > 0)
+          @floor_entry.each do |fl|
+            @floors_n_area_ipms_2_comp_g.push(floor: r, area: fl[:area])
+            @ipms_2_comp_g_total_area = @ipms_2_comp_g_total_area + fl[:area]
+          end
+        else
+          @floors_n_area_ipms_2_comp_g.push(floor: r, area: 0)
+        end
       end
+
 
       @ipms_2_comp_h_total_area = 0
 
       @floors_ipms_2_comp_h = @surveys.where(ipms: 2, component: "Comp H", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
       @floors_n_area_ipms_2_comp_h = []
-      @floors_ipms_2_comp_h.each do |r|
-        @floors_n_area_ipms_2_comp_h.push(floor: r[:floor], area: r[:area])
-        @ipms_2_comp_h_total_area = @ipms_2_comp_h_total_area + r[:area]
+      @ipms_2_floors.each do |r|
+        @floor_entry = @floors_ipms_2_comp_h.where(floor: r)
+        if (@floor_entry.count > 0)
+          @floor_entry.each do |fl|
+            @floors_n_area_ipms_2_comp_h.push(floor: r, area: fl[:area])
+            @ipms_2_comp_h_total_area = @ipms_2_comp_h_total_area + fl[:area]
+          end
+        else
+          @floors_n_area_ipms_2_comp_h.push(floor: r, area: 0)
+        end
       end
-
       # IPMS3
+      @ipms_3_floors = 0
+      @ipms_3_floors = Floor.where(tower_id: Tower.where(name: tower).pluck(:id)).order(name: :asc).pluck(:name)
 
       @ipms_3_comp_a_total_area = 0
 
       @floors_ipms_3_comp_a = @surveys.where(ipms: 3, component: "Comp A", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
       @floors_n_area_ipms_3_comp_a = []
-      @floors_ipms_3_comp_a.each do |r|
-        @floors_n_area_ipms_3_comp_a.push(floor: r[:floor], area: r[:area])
-        @ipms_3_comp_a_total_area = @ipms_3_comp_a_total_area + r[:area]
+      @ipms_3_floors.each do |r|
+        @floor_entry = @floors_ipms_3_comp_a.where(floor: r)
+        if (@floor_entry.count > 0)
+          @floor_entry.each do |fl|
+            @floors_n_area_ipms_3_comp_a.push(floor: r, area: fl[:area])
+            @ipms_3_comp_a_total_area = @ipms_3_comp_a_total_area + fl[:area]
+          end
+        else
+          @floors_n_area_ipms_3_comp_a.push(floor: r, area: 0)
+        end
       end
 
       @ipms_3_comp_b_total_area = 0
 
       @floors_ipms_3_comp_b = @surveys.where(ipms: 3, component: "Comp B", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
       @floors_n_area_ipms_3_comp_b = []
-      @floors_ipms_3_comp_b.each do |r|
-        @floors_n_area_ipms_3_comp_b.push(floor: r[:floor], area: r[:area])
-        @ipms_3_comp_b_total_area = @ipms_3_comp_b_total_area + r[:area]
+      @ipms_3_floors.each do |r|
+        @floor_entry = @floors_ipms_3_comp_b.where(floor: r)
+        if (@floor_entry.count > 0)
+          @floor_entry.each do |fl|
+            @floors_n_area_ipms_3_comp_b.push(floor: r, area: fl[:area])
+            @ipms_3_comp_b_total_area = @ipms_3_comp_b_total_area + fl[:area]
+          end
+        else
+          @floors_n_area_ipms_3_comp_b.push(floor: r, area: 0)
+        end
       end
     else
       render 'search'
