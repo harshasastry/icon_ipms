@@ -248,4 +248,138 @@ unit_wipro_ec5_tower_s2.floors.create(name: "12F")
 
 
 
+# ipms1 detail for tower 11
+
+s1 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "0F", area: 22610, building_type: "Commercial",component: "Comp A",ipms: "1")
+s2 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "0F", area: 423, building_type: "Commercial",component: "Comp B",ipms: "1")
+s3 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "1F", area: 21830, building_type: "Commercial",component: "Comp A",ipms: "1")
+s4 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "1F", area: 1942, building_type: "Commercial",component: "Comp B",ipms: "1")
+s5 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "2F", area: 21830, building_type: "Commercial",component: "Comp A",ipms: "1")
+s6 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "2F", area: 1942, building_type: "Commercial",component: "Comp B",ipms: "1")
+s7 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "3F", area: 22360, building_type: "Commercial",component: "Comp A",ipms: "1")
+s8 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "3F", area: 1330, building_type: "Commercial",component: "Comp B",ipms: "1")
+
+
+# ipms1 detail for tower 12
+
+s1 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "0F", area: 22670, building_type: "Commercial",component: "Comp A",ipms: "1")
+s2 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "0F", area: 461.8, building_type: "Commercial",component: "Comp B",ipms: "1")
+s3 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "1F", area: 23250, building_type: "Commercial",component: "Comp A",ipms: "1")
+s4 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "1F", area: 2118, building_type: "Commercial",component: "Comp B",ipms: "1")
+s5 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "2F", area: 23250, building_type: "Commercial",component: "Comp A",ipms: "1")
+s6 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "2F", area: 2118, building_type: "Commercial",component: "Comp B",ipms: "1")
+s7 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "3F", area: 24590, building_type: "Commercial",component: "Comp A",ipms: "1")
+s8 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "3F", area: 1107, building_type: "Commercial",component: "Comp B",ipms: "1")
+
+
+# ipms2 detail for tower 11
+
+s1 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "0F", area: 2547, building_type: "Commercial",component: "Comp A",ipms: "2")
+s2 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "0F", area: 600.6, building_type: "Commercial",component: "Comp B",ipms: "2")
+s3 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "1F", area: 2520, building_type: "Commercial",component: "Comp A",ipms: "2")
+s4 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "1F", area: 600.6, building_type: "Commercial",component: "Comp B",ipms: "2")
+s5 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "2F", area: 2520, building_type: "Commercial",component: "Comp A",ipms: "2")
+s6 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "2F", area: 600.6, building_type: "Commercial",component: "Comp B",ipms: "2")
+s7 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "3F", area: 2415, building_type: "Commercial",component: "Comp A",ipms: "2")
+s8 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "3F", area: 600.6, building_type: "Commercial",component: "Comp B",ipms: "2")
+
+s9 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "0F", area: 1846, building_type: "Commercial",component: "Comp C",ipms: "2")
+s10 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "0F", area: 603.9, building_type: "Commercial",component: "Comp D",ipms: "2")
+s11 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "1F", area: 2283, building_type: "Commercial",component: "Comp C",ipms: "2")
+s12 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "1F", area: 603.9, building_type: "Commercial",component: "Comp D",ipms: "2")
+s13 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "2F", area: 2226, building_type: "Commercial",component: "Comp C",ipms: "2")
+s14 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "2F", area: 603.9, building_type: "Commercial",component: "Comp D",ipms: "2")
+s15 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "3F", area: 2006, building_type: "Commercial",component: "Comp C",ipms: "2")
+s16 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "3F", area: 603.9, building_type: "Commercial",component: "Comp D",ipms: "2")
+
+
+s17 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "0F", area: 2340, building_type: "Commercial",component: "Comp E",ipms: "2")
+s18 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "0F", area: 271.3, building_type: "Commercial",component: "Comp F",ipms: "2")
+s19 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "1F", area: 2340, building_type: "Commercial",component: "Comp E",ipms: "2")
+s20 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "1F", area: 271.3, building_type: "Commercial",component: "Comp F",ipms: "2")
+s21 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "2F", area: 2340, building_type: "Commercial",component: "Comp E",ipms: "2")
+s22 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "2F", area: 271.3, building_type: "Commercial",component: "Comp F",ipms: "2")
+s23 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "3F", area: 2340, building_type: "Commercial",component: "Comp E",ipms: "2")
+s24= Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "3F", area: 271.3, building_type: "Commercial",component: "Comp F",ipms: "2")
+
+
+s25 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "0F", area: 12720, building_type: "Commercial",component: "Comp G",ipms: "2")
+s26 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "0F", area: 479, building_type: "Commercial",component: "Comp H",ipms: "2")
+s27 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "1F", area: 11570, building_type: "Commercial",component: "Comp G",ipms: "2")
+s28 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "1F", area: 1678, building_type: "Commercial",component: "Comp H",ipms: "2")
+s29 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "2F", area: 11570, building_type: "Commercial",component: "Comp G",ipms: "2")
+s30 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "2F", area: 1942, building_type: "Commercial",component: "Comp H",ipms: "2")
+s31 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "3F", area: 12330, building_type: "Commercial",component: "Comp G",ipms: "2")
+s32 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "0F", area: 1679, building_type: "Commercial",component: "Comp H",ipms: "2")
+
+
+# ipms2 detail for tower 12
+
+s1 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "0F", area: 2488, building_type: "Commercial",component: "Comp A",ipms: "2")
+s2 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "0F", area: 624.3, building_type: "Commercial",component: "Comp B",ipms: "2")
+s3 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "1F", area: 2465, building_type: "Commercial",component: "Comp A",ipms: "2")
+s4 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "1F", area: 624.3, building_type: "Commercial",component: "Comp B",ipms: "2")
+s5 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "2F", area: 2389, building_type: "Commercial",component: "Comp A",ipms: "2")
+s6 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "2F", area: 624.3, building_type: "Commercial",component: "Comp B",ipms: "2")
+s7 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "3F", area: 2404, building_type: "Commercial",component: "Comp A",ipms: "2")
+s8 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "3F", area: 624.3, building_type: "Commercial",component: "Comp B",ipms: "2")
+
+s9 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "0F", area: 2914, building_type: "Commercial",component: "Comp C",ipms: "2")
+s10 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "0F", area: 658.8, building_type: "Commercial",component: "Comp D",ipms: "2")
+s11 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "1F", area: 2517, building_type: "Commercial",component: "Comp C",ipms: "2")
+s12 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "1F", area: 658.8, building_type: "Commercial",component: "Comp D",ipms: "2")
+s13 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "2F", area: 2125, building_type: "Commercial",component: "Comp C",ipms: "2")
+s14 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "2F", area: 658.8, building_type: "Commercial",component: "Comp D",ipms: "2")
+s15 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "3F", area: 2724, building_type: "Commercial",component: "Comp C",ipms: "2")
+s16 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "3F", area: 658.8, building_type: "Commercial",component: "Comp D",ipms: "2")
+
+
+s17 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "0F", area: 2689, building_type: "Commercial",component: "Comp E",ipms: "2")
+s18 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "0F", area: 296, building_type: "Commercial",component: "Comp F",ipms: "2")
+s19 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "1F", area: 2553, building_type: "Commercial",component: "Comp E",ipms: "2")
+s20 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "1F", area: 296, building_type: "Commercial",component: "Comp F",ipms: "2")
+s21 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "2F", area: 2553, building_type: "Commercial",component: "Comp E",ipms: "2")
+s22 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "2F", area: 296, building_type: "Commercial",component: "Comp F",ipms: "2")
+s23 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "3F", area: 2553, building_type: "Commercial",component: "Comp E",ipms: "2")
+s24= Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "3F", area: 296, building_type: "Commercial",component: "Comp F",ipms: "2")
+
+
+s25 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "0F", area: 12930, building_type: "Commercial",component: "Comp G",ipms: "2")
+s26 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "0F", area: 522, building_type: "Commercial",component: "Comp H",ipms: "2")
+s27 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "1F", area: 12610, building_type: "Commercial",component: "Comp G",ipms: "2")
+s28 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "1F", area: 1885, building_type: "Commercial",component: "Comp H",ipms: "2")
+s29 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "2F", area: 12910, building_type: "Commercial",component: "Comp G",ipms: "2")
+s30 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "2F", area: 2186, building_type: "Commercial",component: "Comp H",ipms: "2")
+s31 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "3F", area: 13190, building_type: "Commercial",component: "Comp G",ipms: "2")
+s32 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "0F", area: 1414, building_type: "Commercial",component: "Comp H",ipms: "2")
+
+
+
+
+# ipms3 detail for tower 11
+
+s1 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "0F", area: 11900, building_type: "Commercial",component: "Comp A",ipms: "3")
+s2 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "0F", area: 322.9, building_type: "Commercial",component: "Comp B",ipms: "3")
+s3 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "1F", area: 11900, building_type: "Commercial",component: "Comp A",ipms: "3")
+s4 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "1F", area: 1521, building_type: "Commercial",component: "Comp B",ipms: "3")
+s5 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "2F", area: 12370, building_type: "Commercial",component: "Comp A",ipms: "3")
+s6 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "2F", area: 1518, building_type: "Commercial",component: "Comp B",ipms: "3")
+s7 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "3F", area: 13190, building_type: "Commercial",component: "Comp A",ipms: "3")
+s8 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-11", floor: "3F", area: 1068, building_type: "Commercial",component: "Comp B",ipms: "3")
+
+
+# ipms3 detail for tower 12
+
+s1 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "0F", area: 12980, building_type: "Commercial",component: "Comp A",ipms: "3")
+s2 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "0F", area: 353.1, building_type: "Commercial",component: "Comp B",ipms: "3")
+s3 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "1F", area: 12980, building_type: "Commercial",component: "Comp A",ipms: "3")
+s4 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "1F", area: 1660, building_type: "Commercial",component: "Comp B",ipms: "3")
+s5 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "2F", area: 13470, building_type: "Commercial",component: "Comp A",ipms: "3")
+s6 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "2F", area: 545.7, building_type: "Commercial",component: "Comp B",ipms: "3")
+s7 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "3F", area: 13760, building_type: "Commercial",component: "Comp A",ipms: "3")
+s8 = Survey.create(organisation: "Wipro", city: "Bangalore", location: "Wipro Electronic City", unit: "EC-4", tower: "TOWER-12", floor: "3F", area: 1189, building_type: "Commercial",component: "Comp B",ipms: "3")
+
+
+
+
 
