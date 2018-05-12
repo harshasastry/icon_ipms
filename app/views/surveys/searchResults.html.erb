@@ -57,9 +57,10 @@
 </div>
 
 <br/>
-<% if @IPMS1 %>
-  <%= image_tag(@IPMS1, size: "300", :style => "border: 1px solid grey") %>
-<% end %>
+
+ <% @ipms1_floor_imgs.each do |r| %>
+  <%= image_tag(r, size: "250", :style => "border: 1px solid grey") %>
+ <% end %>
 
 <hr/>
 
@@ -187,10 +188,14 @@
 </div>
 <br/>
 
-<% if @IPMS2 %>
-  <%= image_tag(@IPMS2, size: "300", :style => "border: 1px solid grey") %>
-<% end %>
+
+
+<% @ipms2_floor_imgs.each do |r| %>
+  <%= image_tag(r, size: "250", :style => "border: 1px solid grey") %>
+ <% end %>
+
 <hr/>
+
 
 <div><h3> IPMS-3 Details </h3></div>
 <div class="container">
@@ -237,9 +242,10 @@
 	</div>
 </div>
 <br/>
-<% if @IPMS3 %>
-  <%= image_tag(@IPMS3, size: "300", :style => "border: 1px solid grey") %>
-<% end %>
+
+<% @ipms3_floor_imgs.each do |r| %>
+  <%= image_tag(r, size: "250", :style => "border: 1px solid grey") %>
+ <% end %>
 
 <hr/>
 

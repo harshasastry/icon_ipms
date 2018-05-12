@@ -54,8 +54,13 @@ class SurveysController < ApplicationController
       @IPMS3 = "IPMS3.png"
 
       # IPMS1
+      @ipms1_floor_imgs = []
       @ipms_1_floors = 0
       @ipms_1_floors = Floor.where(tower_id: Tower.where(name: tower).pluck(:id)).order(name: :asc).pluck(:name)
+      @ipms_1_floors.each do |flr|
+        str = "WIPRO"+"/"+unit+"/"+"WIPRO #{unit} T-#{tower.scan(/\d+/).last} #{flr} IPMS-1.png"
+        @ipms1_floor_imgs.push(str)
+      end
 
       @ipms_1_comp_a_total_area = 0
 
@@ -89,11 +94,20 @@ class SurveysController < ApplicationController
         end
       end
 
+      
+
       # IPMS2
       @ipms_2_floors = 0
       @ipms_2_floors = Floor.where(tower_id: Tower.where(name: tower).pluck(:id)).order(name: :asc).pluck(:name)
 
+      @ipms2_floor_imgs = []
+      @ipms_2_floors.each do |flr|
+        str = "WIPRO"+"/"+unit+"/"+"WIPRO #{unit} T-#{tower.scan(/\d+/).last} #{flr} IPMS-2.png"
+        @ipms2_floor_imgs.push(str)
+      end
+
       @ipms_2_comp_a_total_area = 0
+
 
       @floors_ipms_2_comp_a = @surveys.where(ipms: 2, component: "Comp A", organisation: organisation, city: city, location: location, unit: unit, tower: tower).order(floor: :asc)
       @floors_n_area_ipms_2_comp_a = []
@@ -108,6 +122,7 @@ class SurveysController < ApplicationController
           @floors_n_area_ipms_2_comp_a.push(floor: r, area: 0)
         end
       end
+
 
       @ipms_2_comp_b_total_area = 0
 
@@ -223,6 +238,12 @@ class SurveysController < ApplicationController
       # IPMS3
       @ipms_3_floors = 0
       @ipms_3_floors = Floor.where(tower_id: Tower.where(name: tower).pluck(:id)).order(name: :asc).pluck(:name)
+
+      @ipms3_floor_imgs = []
+      @ipms_3_floors.each do |flr|
+        str = "WIPRO"+"/"+unit+"/"+"WIPRO #{unit} T-#{tower.scan(/\d+/).last} #{flr} IPMS-3.png"
+        @ipms3_floor_imgs.push(str)
+      end
 
       @ipms_3_comp_a_total_area = 0
 
