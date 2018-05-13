@@ -29,7 +29,8 @@ class SurveysController < ApplicationController
   end
 
   def search
-    @orgPlan = 'WIPRO/WIPRO-EC-CAMPUS.png'
+    org = params[:org]
+    @orgPlan = "#{org}/#{org}-EC-CAMPUS.png"
   end
 
   def searchResults
@@ -49,16 +50,13 @@ class SurveysController < ApplicationController
 
       @organisation = organisation
       #send_file Rails.root.join("public", "IPMS1.png"), type: "image/png", disposition: "inline"
-      @IPMS1 = "IPMS1.png"
-      @IPMS2 = "IPMS2.png"
-      @IPMS3 = "IPMS3.png"
-
+      
       # IPMS1
       @ipms1_floor_imgs = []
       @ipms_1_floors = 0
       @ipms_1_floors = Floor.where(tower_id: Tower.where(name: tower).pluck(:id)).order(name: :asc).pluck(:name)
       @ipms_1_floors.each do |flr|
-        str = "WIPRO"+"/"+unit+"/"+"WIPRO #{unit} T-#{tower.scan(/\d+/).last} #{flr} IPMS-1.png"
+        str = "#{@organisation}"+"/"+unit+"/"+"#{@organisation} #{unit} T-#{tower.scan(/\d+/).last} #{flr} IPMS-1.png"
         @ipms1_floor_imgs.push(str)
       end
 
@@ -102,7 +100,7 @@ class SurveysController < ApplicationController
 
       @ipms2_floor_imgs = []
       @ipms_2_floors.each do |flr|
-        str = "WIPRO"+"/"+unit+"/"+"WIPRO #{unit} T-#{tower.scan(/\d+/).last} #{flr} IPMS-2.png"
+        str = "#{@organisation}"+"/"+unit+"/"+"#{@organisation} #{unit} T-#{tower.scan(/\d+/).last} #{flr} IPMS-2.png"
         @ipms2_floor_imgs.push(str)
       end
 
@@ -241,7 +239,7 @@ class SurveysController < ApplicationController
 
       @ipms3_floor_imgs = []
       @ipms_3_floors.each do |flr|
-        str = "WIPRO"+"/"+unit+"/"+"WIPRO #{unit} T-#{tower.scan(/\d+/).last} #{flr} IPMS-3.png"
+        str = "#{@organisation}"+"/"+unit+"/"+"#{@organisation} #{unit} T-#{tower.scan(/\d+/).last} #{flr} IPMS-3.png"
         @ipms3_floor_imgs.push(str)
       end
 
