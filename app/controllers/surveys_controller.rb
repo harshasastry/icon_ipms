@@ -281,7 +281,7 @@ class SurveysController < ApplicationController
 
 
   def index
-    @surveys = Survey.all
+    @surveys = Survey.all.order(organisation: :asc).order(city: :asc).order(location: :asc).order(unit: :asc).order(tower: :asc).order(floor: :asc).order(component: :asc)
   end
 
   def destroy
