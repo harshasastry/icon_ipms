@@ -382,4 +382,130 @@ s8 = Survey.create(organisation: "WIPRO", city: "Bangalore", location: "WIPRO El
 
 
 
+#Infosys seeds
 
+org_INFO = Organisation.create(name: "INFOSYS")
+
+org_INFO.cities.create(name: "Bangalore")
+
+city = City.find_by(name: "Bangalore")
+
+location_INFO = city.locations.create(name: "INFOSYS Electronic City")
+
+unit_INFO_ec_park2 = location_INFO.units.create(name: "PARK-2")
+unit_INFO_ec_park3 = location_INFO.units.create(name: "PARK-3")
+
+unit_INFO_ec_park2_tower_building14_15 = unit_INFO_ec_park2.towers.create(name: "BUILDING 14&15")
+unit_INFO_ec_park3_tower_building23_24 = unit_INFO_ec_park3.towers.create(name: "BUILDING 23&24")
+
+
+unit_INFO_ec_park2_tower_building14_15.floors.create(name: "0F")
+unit_INFO_ec_park2_tower_building14_15.floors.create(name: "1F")
+unit_INFO_ec_park2_tower_building14_15.floors.create(name: "2F")
+
+unit_INFO_ec_park3_tower_building23_24.floors.create(name: "-1F")
+unit_INFO_ec_park3_tower_building23_24.floors.create(name: "0F")
+unit_INFO_ec_park3_tower_building23_24.floors.create(name: "1F")
+unit_INFO_ec_park3_tower_building23_24.floors.create(name: "2F")
+
+
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "0F", area: 24246.284, building_type: "Commercial",component: "Comp A",ipms: "1")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "0F", area: 0, building_type: "Commercial",component: "Comp B",ipms: "1")
+s3 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "1F", area: 24246.284, building_type: "Commercial",component: "Comp A",ipms: "1")
+s4 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "1F", area: 0, building_type: "Commercial",component: "Comp B",ipms: "1")
+s5 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "2F", area: 21980.232, building_type: "Commercial",component: "Comp A",ipms: "1")
+s6 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "2F", area: 0, building_type: "Commercial",component: "Comp B",ipms: "1")
+
+
+
+
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "0F", area: 747.83, building_type: "Commercial",component: "Comp A",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "0F", area: 673.196, building_type: "Commercial",component: "Comp B",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "0F", area: 1862.029, building_type: "Commercial",component: "Comp C",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "0F", area: 542.423, building_type: "Commercial",component: "Comp D",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "0F", area: 5585.749, building_type: "Commercial",component: "Comp E",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "0F", area: 168.801, building_type: "Commercial",component: "Comp F",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "0F", area: 12418.56, building_type: "Commercial",component: "Comp G",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "0F", area: 76.085, building_type: "Commercial",component: "Comp H",ipms: "2")
+
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "1F", area: 2438.128, building_type: "Commercial",component: "Comp A",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "1F", area: 622.079, building_type: "Commercial",component: "Comp B",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "1F", area: 1762.636, building_type: "Commercial",component: "Comp C",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "1F", area: 669.595, building_type: "Commercial",component: "Comp D",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "1F", area: 2168.81, building_type: "Commercial",component: "Comp E",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "1F", area: 288.246, building_type: "Commercial",component: "Comp F",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "1F", area: 14129.448, building_type: "Commercial",component: "Comp G",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "1F", area: 0, building_type: "Commercial",component: "Comp H",ipms: "2")
+
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "2F", area: 1397.55, building_type: "Commercial",component: "Comp A",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "2F", area: 584.437, building_type: "Commercial",component: "Comp B",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "2F", area: 282.808, building_type: "Commercial",component: "Comp C",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "2F", area: 542.989, building_type: "Commercial",component: "Comp D",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "2F", area: 2506.302, building_type: "Commercial",component: "Comp E",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "2F", area: 168.801, building_type: "Commercial",component: "Comp F",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "2F", area: 14383.94, building_type: "Commercial",component: "Comp G",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "2F", area: 180.528, building_type: "Commercial",component: "Comp H",ipms: "2")
+
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "0F", area: 12418.559, building_type: "Commercial",component: "Comp A",ipms: "3")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "0F", area: 0, building_type: "Commercial",component: "Comp B",ipms: "3")
+s3 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "1F", area: 14129.445, building_type: "Commercial",component: "Comp A",ipms: "3")
+s4 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "1F", area: 0, building_type: "Commercial",component: "Comp B",ipms: "3")
+s5 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "2F", area: 14383.937, building_type: "Commercial",component: "Comp A",ipms: "3")
+s6 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-2", tower: "BUILDING 14&15", floor: "2F", area: 0, building_type: "Commercial",component: "Comp B",ipms: "3")
+
+
+# FOR 23&24
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "-1F", area: 26934.03, building_type: "Commercial",component: "Comp A",ipms: "1")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "-1F", area: 0, building_type: "Commercial",component: "Comp B",ipms: "1")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "0F", area: 26934.03, building_type: "Commercial",component: "Comp A",ipms: "1")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "0F", area: 0, building_type: "Commercial",component: "Comp B",ipms: "1")
+s3 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "1F", area: 26934.03, building_type: "Commercial",component: "Comp A",ipms: "1")
+s4 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "1F", area: 0, building_type: "Commercial",component: "Comp B",ipms: "1")
+s5 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "2F", area: 26934.03, building_type: "Commercial",component: "Comp A",ipms: "1")
+s6 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "2F", area: 0, building_type: "Commercial",component: "Comp B",ipms: "1")
+
+
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "-1F", area: 1057.86, building_type: "Commercial",component: "Comp A",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "-1F", area: 461.25, building_type: "Commercial",component: "Comp B",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "-1F", area: 4221.97, building_type: "Commercial",component: "Comp C",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "-1F", area: 0, building_type: "Commercial",component: "Comp D",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "-1F", area: 2263.11, building_type: "Commercial",component: "Comp E",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "-1F", area: 0, building_type: "Commercial",component: "Comp F",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "-1F", area: 17858.09, building_type: "Commercial",component: "Comp G",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "-1F", area: 167.26, building_type: "Commercial",component: "Comp H",ipms: "2")
+
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "0F", area: 1474.66, building_type: "Commercial",component: "Comp A",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "0F", area: 484.12, building_type: "Commercial",component: "Comp B",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "0F", area: 2681.19, building_type: "Commercial",component: "Comp C",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "0F", area: 847.74, building_type: "Commercial",component: "Comp D",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "0F", area: 2263.11, building_type: "Commercial",component: "Comp E",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "0F", area: 589.65, building_type: "Commercial",component: "Comp F",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "0F", area: 17676.02, building_type: "Commercial",component: "Comp G",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "0F", area: 0, building_type: "Commercial",component: "Comp H",ipms: "2")
+
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "1F", area: 1474.66, building_type: "Commercial",component: "Comp A",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "1F", area: 484.12, building_type: "Commercial",component: "Comp B",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "1F", area: 2841.78, building_type: "Commercial",component: "Comp C",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "1F", area: 847.74, building_type: "Commercial",component: "Comp D",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "1F", area: 2263.12, building_type: "Commercial",component: "Comp E",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "1F", area: 589.65, building_type: "Commercial",component: "Comp F",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "1F", area: 17676.02, building_type: "Commercial",component: "Comp G",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "1F", area: 0, building_type: "Commercial",component: "Comp H",ipms: "2")
+
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "2F", area: 1474.66, building_type: "Commercial",component: "Comp A",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "2F", area: 515.37, building_type: "Commercial",component: "Comp B",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "2F", area: 1772.14, building_type: "Commercial",component: "Comp C",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "2F", area: 844.68, building_type: "Commercial",component: "Comp D",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "2F", area: 3051.16, building_type: "Commercial",component: "Comp E",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "2F", area: 696.6, building_type: "Commercial",component: "Comp F",ipms: "2")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "2F", area: 1777.69, building_type: "Commercial",component: "Comp G",ipms: "2")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "2F", area: 0, building_type: "Commercial",component: "Comp H",ipms: "2")
+
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "-1F", area: 17925.71, building_type: "Commercial",component: "Comp A",ipms: "3")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "-1F", area: 0, building_type: "Commercial",component: "Comp B",ipms: "3")
+s1 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "0F", area: 17747.08, building_type: "Commercial",component: "Comp A",ipms: "3")
+s2 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "0F", area: 0, building_type: "Commercial",component: "Comp B",ipms: "3")
+s3 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "1F", area: 17743.64, building_type: "Commercial",component: "Comp A",ipms: "3")
+s4 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "1F", area: 0, building_type: "Commercial",component: "Comp B",ipms: "3")
+s5 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "2F", area: 17845.31, building_type: "Commercial",component: "Comp A",ipms: "3")
+s6 = Survey.create(organisation: "INFOSYS", city: "Bangalore", location: "INFOSYS Electronic City", unit: "PARK-3", tower: "BUILDING 23&24", floor: "2F", area: 0, building_type: "Commercial",component: "Comp B",ipms: "3")
