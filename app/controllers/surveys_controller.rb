@@ -56,7 +56,8 @@ class SurveysController < ApplicationController
       @ipms_1_floors = 0
       @ipms_1_floors = Floor.where(tower_id: Tower.where(name: tower).pluck(:id)).order(name: :asc).pluck(:name)
       @ipms_1_floors.each do |flr|
-        str = "#{@organisation}"+"/"+unit+"/"+"#{@organisation} #{unit} T-#{tower.scan(/\d+/).last} #{flr} IPMS-1.png"
+        str = "#{@organisation}"+"/"+unit+"/"+"#{@organisation} #{unit} #{tower} #{flr} IPMS-1.png"
+        # str = "#{@organisation}"+"/"+unit+"/"+"#{@organisation} #{unit} T-#{tower.scan(/\d+/).last} #{flr} IPMS-1.png"
         @ipms1_floor_imgs.push(str)
       end
 
@@ -100,7 +101,7 @@ class SurveysController < ApplicationController
 
       @ipms2_floor_imgs = []
       @ipms_2_floors.each do |flr|
-        str = "#{@organisation}"+"/"+unit+"/"+"#{@organisation} #{unit} T-#{tower.scan(/\d+/).last} #{flr} IPMS-2.png"
+        str = "#{@organisation}"+"/"+unit+"/"+"#{@organisation} #{unit} #{tower} #{flr} IPMS-2.png"
         @ipms2_floor_imgs.push(str)
       end
 
@@ -239,7 +240,7 @@ class SurveysController < ApplicationController
 
       @ipms3_floor_imgs = []
       @ipms_3_floors.each do |flr|
-        str = "#{@organisation}"+"/"+unit+"/"+"#{@organisation} #{unit} T-#{tower.scan(/\d+/).last} #{flr} IPMS-3.png"
+        str = "#{@organisation}"+"/"+unit+"/"+"#{@organisation} #{unit} #{tower} #{flr} IPMS-3.png"
         @ipms3_floor_imgs.push(str)
       end
 
